@@ -25,7 +25,8 @@ const SECTIONS = [
     title: 'Quais dados coletamos',
     body: [
       'Coletamos apenas o que você informa voluntariamente nos formulários: nome, telefone de WhatsApp e as preferências relacionadas ao veículo — marca, modelo, ano, cor, faixa de investimento, forma de pagamento, dados de um eventual veículo para troca, prazo de compra e observações.',
-      'Não solicitamos CPF, dados bancários, documentos ou qualquer informação sensível neste site.',
+      'Se você indicar que pretende financiar, pedimos também informações por faixa para uma pré-análise: valor de entrada disponível, faixa de renda mensal, forma de comprovação de renda, situação do seu nome e se você já possui crédito aprovado em algum banco. São faixas, nunca valores exatos.',
+      'Não solicitamos CPF, data de nascimento, dados bancários, documentos, comprovantes ou qualquer informação sensível neste site. Se a negociação avançar e o banco exigir esses documentos, eles são tratados diretamente com o consultor, fora daqui.',
     ],
   },
   {
@@ -33,6 +34,7 @@ const SECTIONS = [
     title: 'Para que utilizamos',
     body: [
       'Os dados são utilizados exclusivamente para entrar em contato com você por WhatsApp, entender o que procura e apresentar veículos compatíveis com o seu interesse.',
+      'As informações de financiamento servem para uma leitura preliminar das condições — orientar qual instituição financeira faz sentido e qual faixa de parcela cabe no seu orçamento — antes mesmo da primeira conversa. Nenhuma consulta a birô de crédito é feita a partir deste site, e nenhuma decisão automatizada é tomada sobre você.',
       'A base legal é o seu consentimento, coletado de forma explícita e nunca pré-marcada, e o legítimo interesse na condução do atendimento comercial que você solicitou.',
     ],
   },
@@ -56,6 +58,7 @@ const SECTIONS = [
     title: 'Cookies e medição',
     body: [
       'Este site não usa cookies para funcionar. Ferramentas de medição de audiência só são carregadas quando configuradas pela loja, e o mapa do Google é carregado apenas quando você clica para abri-lo.',
+      'As informações dos formulários não ficam armazenadas neste site: elas são montadas em uma mensagem e enviadas por você, pelo seu próprio WhatsApp, no momento em que você toca no botão final.',
     ],
   },
   {

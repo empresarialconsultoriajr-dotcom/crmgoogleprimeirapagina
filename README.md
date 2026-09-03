@@ -135,11 +135,34 @@ Regras que o código segue:
 
 ## Fluxos de captação
 
-### Concierge (6 etapas)
+### Concierge (6 ou 7 etapas)
 
 Formulário multi-etapas com validação por etapa, máscaras de telefone, KM,
 moeda e ano, e consentimento LGPD explícito (nunca pré-marcado). Ao concluir:
 mostra a confirmação, monta a mensagem estruturada e abre o WhatsApp.
+
+**Triagem de crédito condicional.** Quem escolhe *Financiamento* ou
+*Veículo + diferença* ganha uma sétima etapa; quem paga à vista nunca a vê.
+São cinco perguntas de toque único, todas por faixa:
+
+| Pergunta               | Por que o vendedor precisa                                  |
+| ---------------------- | ----------------------------------------------------------- |
+| Entrada disponível     | É a alavanca que mais muda a aprovação e o valor da parcela  |
+| Faixa de renda         | Define o teto de parcela que o banco aceita                  |
+| Comprovação de renda   | Decide qual banco e quais documentos entram na ficha          |
+| Situação do nome       | Filtro mais decisivo da pré-análise                          |
+| Já tem crédito aprovado| Separa o lead pronto para fechar de quem ainda vai analisar   |
+
+O bloco `PERFIL PARA FINANCIAMENTO` entra na mensagem do WhatsApp, então o
+consultor abre a conversa já sabendo o cenário.
+
+**O que deliberadamente não é pedido aqui:** CPF, data de nascimento, nome da
+mãe, comprovantes. São exatamente os dados que o banco exige — e exatamente os
+que uma página pública não deve carregar. Três motivos: a mensagem trafega pela
+URL do WhatsApp (histórico do navegador, logs); pedir documento antes da
+primeira conversa derruba a conversão; e guardar CPF cria obrigação de LGPD que
+o site não precisa assumir. Esses dados são do consultor, na conversa, quando a
+proposta avançar.
 
 ### Vender / Trocar
 
@@ -159,7 +182,8 @@ carregado enquanto os IDs estiverem vazios.
 
 Eventos: `page_view_biolink`, `click_whatsapp`, `click_instagram`,
 `click_google_profile`, `click_maps`, `click_inventory`, `start_car_finder`,
-`car_finder_step_01`…`car_finder_step_06`, `car_finder_completed`,
+`car_finder_step_01`…`car_finder_step_06`, `car_finder_credit_profile`,
+`car_finder_completed`,
 `click_sell_car`, `sell_car_completed`, `click_trade_car`,
 `trade_car_completed`.
 
@@ -181,9 +205,13 @@ Para espelhar leads em um CRM, defina `NEXT_PUBLIC_LEAD_WEBHOOK_URL` — o envio
 
 ## Privacidade
 
-Coletamos nome, WhatsApp e interesse comercial, então a página
+Coletamos nome, WhatsApp, interesse comercial e — só no caminho de
+financiamento — faixas de entrada, renda e situação de crédito. A página
 `/privacidade` explica base legal, uso, compartilhamento, prazo e direitos do
-titular. O consentimento é um checkbox real, obrigatório e nunca pré-marcado.
+titular, e deixa claro que nenhuma consulta a birô é feita a partir do site.
+
+O consentimento é um checkbox real, obrigatório e nunca pré-marcado. Seu texto
+muda conforme o caminho: quem financia autoriza explicitamente a pré-análise.
 
 O Google Maps só é carregado depois que a pessoa clica — nada de terceiro roda
 antes disso.

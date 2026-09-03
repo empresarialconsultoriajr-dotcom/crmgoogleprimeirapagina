@@ -118,20 +118,36 @@ type OptionGroupProps = {
   value: string
   onChange: (value: string) => void
   columns?: 1 | 2
+  /** Duas colunas já no celular — para rótulos curtos, corta metade da rolagem. */
+  dense?: boolean
   error?: string
   name: string
+  /** Rótulo visível acima do grupo. Sem ele, a legend fica só para leitores de tela. */
+  label?: string
 }
 
 /**
  * Grupo de escolha em formato de lista editorial.
  * Radiogroup real: navegável por teclado e anunciado por leitores de tela.
  */
-export function OptionGroup({ legend, options, value, onChange, columns = 1, error, name }: OptionGroupProps) {
+export function OptionGroup({
+  legend,
+  options,
+  value,
+  onChange,
+  columns = 1,
+  dense = false,
+  error,
+  name,
+  label,
+}: OptionGroupProps) {
   const id = useId()
+  const grid = columns === 2 ? (dense ? 'grid-cols-2' : 'sm:grid-cols-2') : ''
+
   return (
     <fieldset aria-describedby={error ? `${id}-error` : undefined}>
-      <legend className="sr-only">{legend}</legend>
-      <div className={`grid gap-2.5 ${columns === 2 ? 'sm:grid-cols-2' : ''}`}>
+      {label ? <legend className="label mb-3.5">{label}</legend> : <legend className="sr-only">{legend}</legend>}
+      <div className={`grid gap-2.5 ${grid}`}>
         {options.map((option) => {
           const selected = value === option
           return (
@@ -169,11 +185,13 @@ export function ConsentBox({
   onChange,
   error,
   id = 'consent',
+  label = 'Autorizo o contato da HS CAR’S por WhatsApp sobre veículos compatíveis com meu interesse.',
 }: {
   checked: boolean
   onChange: (v: boolean) => void
   error?: string
   id?: string
+  label?: string
 }) {
   return (
     <div>
@@ -198,9 +216,7 @@ export function ConsentBox({
             <path d="M1 5.2 4.3 8.5 11 1.5" fill="none" stroke="#CFA060" strokeWidth="1.6" />
           </svg>
         </span>
-        <span className="text-[13px] leading-relaxed text-bone/60">
-          Autorizo o contato da HS CAR’S por WhatsApp sobre veículos compatíveis com meu interesse.
-        </span>
+        <span className="text-[13px] leading-relaxed text-bone/60">{label}</span>
       </label>
       {error && (
         <p id={`${id}-error`} role="alert" className="mt-2 pl-[30px] text-[12px] text-[#e07a5f]">

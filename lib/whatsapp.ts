@@ -36,6 +36,11 @@ export type ConciergeData = {
   color: string
   budget: string
   payment: string
+  downPayment: string
+  income: string
+  incomeType: string
+  creditStatus: string
+  preApproved: string
   hasTrade: 'sim' | 'nao' | ''
   tradeBrand: string
   tradeModel: string
@@ -74,6 +79,13 @@ export function conciergeMessage(d: ConciergeData): string {
     ]),
     block('INVESTIMENTO', [line('Faixa', d.budget)]),
     block('FORMA DE COMPRA', [d.payment]),
+    block('PERFIL PARA FINANCIAMENTO', [
+      line('Entrada', d.downPayment),
+      line('Renda mensal', d.income),
+      line('Comprovação de renda', d.incomeType),
+      line('Situação do nome', d.creditStatus),
+      line('Crédito aprovado', d.preApproved),
+    ]),
     trade,
     block('PRAZO', [d.timeframe]),
     block('OBSERVAÇÕES', [d.notes]),

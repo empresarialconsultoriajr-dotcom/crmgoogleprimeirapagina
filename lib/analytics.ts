@@ -18,6 +18,7 @@ export type AnalyticsEvent =
   | 'car_finder_step_04'
   | 'car_finder_step_05'
   | 'car_finder_step_06'
+  | 'car_finder_credit_profile'
   | 'car_finder_completed'
   | 'click_sell_car'
   | 'sell_car_completed'
@@ -44,6 +45,3 @@ export function track(event: AnalyticsEvent, payload: Payload = {}): void {
     console.debug('[analytics]', event, payload)
   }
 }
-
-export const stepEvent = (step: number): AnalyticsEvent =>
-  `car_finder_step_0${Math.min(Math.max(step, 1), 6)}` as AnalyticsEvent
