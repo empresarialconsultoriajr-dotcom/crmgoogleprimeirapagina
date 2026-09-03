@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ConsentBox, OptionGroup, TextAreaField, TextField } from '@/components/Field'
 import { FormSuccess } from '@/components/FormSuccess'
 import { useFlows } from '@/components/FlowsProvider'
@@ -81,6 +81,42 @@ export function ConciergeForm() {
   const [undecided, setUndecided] = useState(false)
   const started = useRef(false)
   const headingRef = useRef<HTMLParagraphElement>(null)
+  const formRef = useRef<HTMLDivElement>(null)
+  const sentinelRef = useRef<HTMLDivElement>(null)
+  const [pinned, setPinned] = useState(false)
+
+  /**
+   * O cabeçalho da etapa gruda no topo assim que a sentinela sai da tela.
+   * Em etapas longas — a triagem de crédito ocupa mais de uma tela — é o que
+   * mantém à vista em que passo você está e o que foi perguntado.
+   */
+  useEffect(() => {
+    const sentinel = sentinelRef.current
+    if (!sentinel || typeof IntersectionObserver === 'undefined') return
+
+    const observer = new IntersectionObserver(([entry]) => setPinned(!entry.isIntersecting), {
+      rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--header-h').trim() || '76px'} 0px 0px 0px`,
+      threshold: 0,
+    })
+    observer.observe(sentinel)
+    return () => observer.disconnect()
+  }, [])
+
+  /**
+   * Ao trocar de etapa, o formulário se recoloca sob o cabeçalho.
+   * Sem isso, quem vinha do fim de uma etapa longa continuava na mesma altura
+   * e caía no meio da etapa seguinte, sem ver a pergunta.
+   */
+  const bringFormIntoView = useCallback(() => {
+    const el = formRef.current
+    if (!el) return
+    const header = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-h') || '76',
+      10,
+    )
+    const top = window.scrollY + el.getBoundingClientRect().top - header - 16
+    window.scrollTo({ top: Math.max(0, top), behavior: reduced ? 'auto' : 'smooth' })
+  }, [reduced])
 
   const withCredit = needsCredit(data.payment)
 
@@ -146,8 +182,10 @@ export function ConciergeForm() {
     [data, undecided],
   )
 
-  const focusHeading = () =>
+  const goToStepTop = () => {
+    bringFormIntoView()
     requestAnimationFrame(() => headingRef.current?.focus({ preventScroll: true }))
+  }
 
   const goNext = () => {
     const found = validate(current)
@@ -158,13 +196,13 @@ export function ConciergeForm() {
     const nextIndex = index + 1
     setIndex(nextIndex)
     track(EVENT[steps[nextIndex]])
-    focusHeading()
+    goToStepTop()
   }
 
   const goBack = () => {
     setErrors({})
     setIndex((i) => Math.max(0, i - 1))
-    focusHeading()
+    goToStepTop()
   }
 
   const payload = useMemo<ConciergeData>(
@@ -198,6 +236,7 @@ export function ConciergeForm() {
     })
     mirrorLead('concierge', payload as unknown as Record<string, unknown>)
     setDone(true)
+    bringFormIntoView()
   }
 
   const handoff = () => sendToWhatsapp(conciergeMessage(payload), 'click_whatsapp', { origin: 'concierge' })
@@ -214,30 +253,58 @@ export function ConciergeForm() {
   const isLast = index === total - 1
 
   return (
-    <div>
-      {/* Progresso — discreto, tipográfico, sem barra de app. */}
-      <div className="flex items-end justify-between gap-6">
-        <span className="label tabular-nums text-bone/55">
-          <span className="text-gold">{String(index + 1).padStart(2, '0')}</span> —{' '}
-          {String(total).padStart(2, '0')}
-        </span>
-        <span className="label hidden sm:inline">Concierge</span>
-      </div>
+    <div ref={formRef}>
+      {/* Sentinela: enquanto ela estiver visível, o cabeçalho da etapa está no lugar. */}
+      <div ref={sentinelRef} className="h-px w-full" aria-hidden />
 
+      {/*
+        Cabeçalho da etapa. Ele acompanha a rolagem: em etapas longas fica
+        grudado logo abaixo do cabeçalho do site, ganhando fundo e um fio
+        para se separar do conteúdo que passa por baixo.
+      */}
       <div
-        className="mt-3 h-px w-full bg-bone/8"
-        role="progressbar"
-        aria-valuemin={1}
-        aria-valuemax={total}
-        aria-valuenow={index + 1}
-        aria-label={`Etapa ${index + 1} de ${total}`}
+        className={`sticky z-20 -mx-6 px-6 transition-[background-color,border-color,padding] duration-500 ease-editorial md:-mx-10 md:px-10 ${
+          pinned
+            ? 'border-b border-bone/10 bg-ink-soft/95 py-4 backdrop-blur-md'
+            : 'border-b border-transparent py-0'
+        }`}
+        style={{ top: 'var(--header-h, 76px)' }}
       >
-        <motion.div
-          className="h-px bg-gold"
-          initial={false}
-          animate={{ width: `${((index + 1) / total) * 100}%` }}
-          transition={editorialTransition(reduced, 0.7)}
-        />
+        <div className="flex items-baseline justify-between gap-5">
+          <span className="label shrink-0 whitespace-nowrap tabular-nums text-bone/55">
+            <span className="text-gold">{String(index + 1).padStart(2, '0')}</span>
+            {'\u2009—\u2009'}
+            {String(total).padStart(2, '0')}
+          </span>
+
+          {/* Grudado, o número sozinho não basta: a pergunta vem junto. */}
+          <span
+            aria-hidden
+            className={`min-w-0 truncate text-right text-[10px] uppercase leading-none tracking-[0.12em] text-bone/55 transition-opacity duration-500 md:text-[11px] ${
+              pinned ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {QUESTION[current]}
+          </span>
+
+          <span className={`label shrink-0 ${pinned ? 'sr-only' : 'hidden sm:inline'}`}>Concierge</span>
+        </div>
+
+        <div
+          className="mt-3 h-px w-full bg-bone/8"
+          role="progressbar"
+          aria-valuemin={1}
+          aria-valuemax={total}
+          aria-valuenow={index + 1}
+          aria-label={`Etapa ${index + 1} de ${total}`}
+        >
+          <motion.div
+            className="h-px bg-gold"
+            initial={false}
+            animate={{ width: `${((index + 1) / total) * 100}%` }}
+            transition={editorialTransition(reduced, 0.7)}
+          />
+        </div>
       </div>
 
       <p

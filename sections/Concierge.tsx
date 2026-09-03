@@ -8,7 +8,7 @@ import { ConciergeForm } from '@/forms/ConciergeForm'
  */
 export function Concierge() {
   return (
-    <Section id="concierge" tone="black" className="relative py-24 md:py-36">
+    <Section id="concierge" tone="black" clip={false} className="relative py-24 md:py-36">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[420px]"
@@ -16,7 +16,7 @@ export function Concierge() {
       />
 
       <div className="relative grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
-        <div className="lg:sticky lg:top-28 lg:self-start">
+        <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="label-gold tabular-nums">05</span>
@@ -58,8 +58,13 @@ export function Concierge() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
-          <div className="panel px-6 py-9 md:px-10 md:py-12">
+        {/*
+          min-w-0: sem isso o item do grid herda o tamanho mínimo automático
+          do conteúdo e se recusa a encolher, empurrando o painel para fora da
+          tela em telas de 320px.
+        */}
+        <Reveal delay={0.1} className="min-w-0">
+          <div className="panel min-w-0 px-6 py-9 md:px-10 md:py-12">
             <ConciergeForm />
           </div>
         </Reveal>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Instagram } from 'lucide-react'
 import { Logo } from './Logo'
 import { scrollToId } from './FlowsProvider'
@@ -16,6 +16,7 @@ const NAV = [
 
 export function Header() {
   const [condensed, setCondensed] = useState(false)
+  const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const onScroll = () => setCondensed(window.scrollY > 48)
@@ -24,8 +25,32 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  /**
+   * Publica a altura real do cabeçalho em --header-h.
+   * É por ela que os elementos grudados (sticky) e a rolagem entre etapas do
+   * formulário sabem onde a área visível de fato começa — em vez de chutar
+   * um valor que muda entre celular e desktop.
+   */
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const publish = () =>
+      document.documentElement.style.setProperty('--header-h', `${Math.round(el.offsetHeight)}px`)
+
+    publish()
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', publish)
+      return () => window.removeEventListener('resize', publish)
+    }
+    const observer = new ResizeObserver(publish)
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <header
+      ref={ref}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ease-editorial ${
         condensed ? 'border-b border-bone/8 bg-black/72 backdrop-blur-md' : 'border-b border-transparent'
       }`}

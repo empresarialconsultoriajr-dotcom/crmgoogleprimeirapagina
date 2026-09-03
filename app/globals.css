@@ -8,6 +8,8 @@
     --hairline: rgba(255, 255, 255, 0.08);
     --hairline-strong: rgba(255, 255, 255, 0.16);
     --gold-line: rgba(207, 160, 96, 0.32);
+    /* Altura real do cabeçalho fixo — o Header publica o valor medido. */
+    --header-h: 76px;
     color-scheme: dark;
   }
 
