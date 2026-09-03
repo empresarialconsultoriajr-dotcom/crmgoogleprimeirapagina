@@ -32,10 +32,13 @@ const env = (key: string, fallback = ''): string => {
   return (map[key] ?? '').trim() || fallback
 }
 
-/** A Vercel expõe o domínio de produção — usamos quando nada foi definido. */
-const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
-  : ''
+/** A Netlify expõe a URL do site publicado; a Vercel, o domínio de produção. */
+const platformUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.URL ||
+  (process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+    : '')
 
 export type Review = {
   author: string
@@ -44,64 +47,92 @@ export type Review = {
   date?: string
 }
 
+export type OpeningHours = {
+  days: string[]
+  label: string
+  opens?: string
+  closes?: string
+  closed?: boolean
+}
+
 export const siteConfig = {
   brandName: "HS CAR'S",
   brandNameShort: 'HS',
   tagline: 'Excelência e Sofisticação',
-  segment: 'Agência de carros novos, seminovos e usados',
+  segment: 'Revendedora de carros novos, seminovos e usados',
 
   /**
    * URL canônica de produção (canonical, sitemap, OpenGraph, schema).
-   * Na Vercel, o domínio de produção é detectado sozinho; defina
-   * NEXT_PUBLIC_SITE_URL para fixar o domínio próprio da loja.
+   * A Netlify injeta `URL` no build, então o site já sai correto no
+   * domínio *.netlify.app. Defina NEXT_PUBLIC_SITE_URL quando a loja tiver
+   * um domínio próprio para esta landing page.
    */
-  siteUrl: env('SITE_URL', vercelUrl || 'https://hscars.com.br'),
+  siteUrl: platformUrl || 'https://hscars.netlify.app',
 
-  /**
-   * Número de WhatsApp no formato internacional, apenas dígitos.
-   * ATENÇÃO: substitua o placeholder abaixo pelo número real da loja.
-   * Enquanto contiver "X", a interface entra em modo degradado elegante
-   * (copia a mensagem e leva o usuário ao Instagram) em vez de abrir um link quebrado.
-   */
-  whatsappNumber: env('WHATSAPP_NUMBER', '5511XXXXXXXXX'),
+  /** WhatsApp comercial da loja, formato internacional, apenas dígitos. */
+  whatsappNumber: env('WHATSAPP_NUMBER', '5511947078010'),
 
   instagramUrl: 'https://www.instagram.com/hscarsofc',
   instagramHandle: '@hscarsofc',
 
-  /** Links que só devem existir quando forem reais. Vazio = elemento oculto. */
-  stockUrl: env('STOCK_URL'),
-  googleProfileUrl: env('GOOGLE_PROFILE_URL'),
-  googleMapsUrl: env('GOOGLE_MAPS_URL'),
-  googleReviewsUrl: env('GOOGLE_REVIEWS_URL'),
+  /** Site institucional com o estoque de veículos. */
+  stockUrl: env('STOCK_URL', 'https://hscarsofc.com.br'),
 
-  phone: env('PHONE'),
+  /** Perfil público no Google (Maps / Business Profile). */
+  googleProfileUrl: env('GOOGLE_PROFILE_URL', 'https://share.google/yZM35KG5WBsun5csP'),
+  googleReviewsUrl: env('GOOGLE_REVIEWS_URL', 'https://share.google/yZM35KG5WBsun5csP'),
+  googleMapsUrl: env('GOOGLE_MAPS_URL', 'https://share.google/yZM35KG5WBsun5csP'),
+
+  phone: env('PHONE', '+5511947078010'),
+  phoneDisplay: '(11) 94707-8010',
   email: env('EMAIL'),
 
   address: {
     street: 'Estrada Tenente Marques, 3600A',
-    district: '',
+    district: 'Vila Poupança',
     city: 'Santana de Parnaíba',
     state: 'SP',
-    postalCode: '',
+    postalCode: '06530-001',
     country: 'BR',
-    /** Preencher para o schema LocalBusiness e para o mapa. */
+    /** Preencher para fixar o pino do mapa no schema. */
     latitude: env('LATITUDE'),
     longitude: env('LONGITUDE'),
   },
 
-  /** Horário de funcionamento — schema.org e seção de localização. */
+  /** Horário conforme o perfil da loja no Google. */
   openingHours: [
-    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00', label: 'Segunda a sexta' },
-    { days: ['Saturday'], opens: '09:00', closes: '14:00', label: 'Sábado' },
-  ],
+    {
+      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      label: 'Segunda a sábado',
+      opens: '08:30',
+      closes: '18:00',
+    },
+    { days: ['Sunday'], label: 'Domingo', closed: true },
+  ] as OpeningHours[],
 
   /**
-   * Reputação — NÃO inventar.
-   * Preencha com os dados reais do perfil do Google.
+   * Reputação — dados reais do perfil do Google.
+   * As avaliações são transcrições das públicas, sem emojis e sem reescrita.
    */
-  googleRating: env('GOOGLE_RATING'),
-  googleReviewsCount: env('GOOGLE_REVIEWS_COUNT'),
-  reviews: [] as Review[],
+  googleRating: env('GOOGLE_RATING', '4,9'),
+  googleReviewsCount: env('GOOGLE_REVIEWS_COUNT', '35'),
+  reviews: [
+    {
+      author: 'Mai Lopes',
+      rating: 5,
+      text: 'Quero agradecer ao Henrique e a Thamires pela super atenção, pela paciência de tirar todas as minhas dúvidas sobre modelos de carro, valores, como ficaria para mim a melhor forma de pagamento. […] Hoje o meu sonho e da minha família foi realizado através de vocês. Super recomendo, empresa íntegra, de pessoas humanas.',
+    },
+    {
+      author: 'Josafá Multas',
+      rating: 5,
+      text: 'Muito bem atendido, gostei muito e já vou indicar.',
+    },
+    {
+      author: 'Rodrigo Santos Rocha',
+      rating: 5,
+      text: 'Sucesso, só carro top parabéns. Deus abençoe, quando for procura uma nave ta loja certa.',
+    },
+  ] as Review[],
 
   /** Imagem de fundo do hero (opcional). Vazio = composição gráfica da marca. */
   heroImage: env('HERO_IMAGE'),
@@ -133,9 +164,13 @@ export const isWhatsappConfigured = /^\d{12,13}$/.test(siteConfig.whatsappNumber
 export const hasReputationData =
   siteConfig.googleRating.length > 0 && siteConfig.googleReviewsCount.length > 0
 
-/** Busca no Maps por endereço quando ainda não há URL/coordenadas definidas. */
-export const mapsDirectionsUrl =
-  siteConfig.googleMapsUrl ||
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${siteConfig.brandName} ${fullAddress}`,
-  )}`
+/**
+ * "Como chegar" abre a rota, não o perfil: um toque a menos para quem já
+ * decidiu visitar a loja.
+ */
+export const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+  `${siteConfig.brandName}, ${fullAddress}, ${siteConfig.address.postalCode}`,
+)}`
+
+/** O perfil público — avaliações, fotos e informações da loja. */
+export const googlePlaceUrl = siteConfig.googleMapsUrl || siteConfig.googleProfileUrl

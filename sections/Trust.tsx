@@ -55,7 +55,8 @@ const CHANNELS: Channel[] = [
 ]
 
 export function Trust() {
-  const rating = Number(siteConfig.googleRating)
+  // A nota é exibida no formato brasileiro; contar estrelas exige número real.
+  const rating = Number(siteConfig.googleRating.replace(',', '.'))
 
   return (
     <Section id="confianca" tone="soft" className="py-24 md:py-36">
@@ -81,13 +82,18 @@ export function Trust() {
                 <span className="label">/ 5</span>
               </div>
 
-              <div className="mt-5 flex items-center gap-1.5" aria-hidden>
+              <div
+                className="mt-5 flex items-center gap-2"
+                role="img"
+                aria-label={`${siteConfig.googleRating} de 5 estrelas, com base em ${siteConfig.googleReviewsCount} avaliações no Google`}
+              >
                 {[0, 1, 2, 3, 4].map((i) => (
                   <Star
                     key={i}
-                    size={14}
+                    size={15}
                     strokeWidth={1.25}
-                    className={i < Math.round(rating) ? 'fill-gold text-gold' : 'text-bone/50'}
+                    aria-hidden
+                    className={i < Math.round(rating) ? 'fill-gold text-gold' : 'text-bone/25'}
                   />
                 ))}
               </div>

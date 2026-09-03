@@ -8,21 +8,60 @@ conversas qualificadas no WhatsApp, com a percepção de uma boutique automotiva
 
 ---
 
-## Antes de publicar — 1 campo obrigatório
+## Publicar na Netlify
 
-Abra `config/siteConfig.ts` (ou defina as variáveis de ambiente) e substitua:
+O projeto é exportado como **HTML estático** — sem função serverless, sem cold
+start, tudo servido pelo CDN.
 
-```ts
-whatsappNumber: env('WHATSAPP_NUMBER', '5511XXXXXXXXX'),
+**Pelo painel:** conecte o repositório e a Netlify lê o `netlify.toml` sozinha.
+Nada para configurar à mão.
+
+| Campo             | Valor           |
+| ----------------- | --------------- |
+| Build command     | `npm run build` |
+| Publish directory | `out`           |
+| Node version      | `22`            |
+
+**Pela CLI:**
+
+```bash
+npm install
+npm run build
+npx netlify deploy --prod --dir=out
 ```
 
-pelo número real da loja, em formato internacional e **apenas dígitos**
-(`55` + DDD + número). Enquanto o placeholder contiver `X`, a interface não
-abre um link quebrado: ela copia a mensagem do lead e leva a pessoa ao direct
-do Instagram.
+Depois é só apontar o link da bio do Instagram para a URL publicada.
 
-Todo o resto é opcional. **Campos vazios escondem o elemento** — nenhum dado é
-inventado em lugar nenhum.
+---
+
+## Os dados da loja já estão no ar
+
+Tudo em `config/siteConfig.ts`, com os valores reais:
+
+| Item                | Valor                                            |
+| ------------------- | ------------------------------------------------ |
+| WhatsApp            | `5511947078010`                                   |
+| Estoque             | `https://hscarsofc.com.br`                        |
+| Perfil no Google    | `https://share.google/yZM35KG5WBsun5csP`          |
+| Reputação           | 4,9 · 35 avaliações                               |
+| Depoimentos         | 3 transcrições públicas do Google                 |
+| Endereço            | Estrada Tenente Marques, 3600A · Vila Poupança    |
+| CEP                 | 06530-001                                         |
+| Horário             | Segunda a sábado, 08:30–18:00 · domingo fechado   |
+
+Qualquer um deles pode ser trocado por variável de ambiente no painel da
+Netlify, sem novo commit — ver `.env.example`.
+
+### Sobre os depoimentos
+
+São transcrições literais das avaliações públicas do Google, sem reescrita.
+As únicas alterações foram remover emojis, marcar cortes com `[…]` e acertar
+acentuação. A avaliação de Thamires Aparecida foi deixada de fora de
+propósito: ela é citada como parte da equipe em outra avaliação, e usá-la
+como prova social seria enganoso.
+
+Quando chegarem avaliações novas, atualize `googleRating`,
+`googleReviewsCount` e o array `reviews` — nessa ordem de importância.
 
 ---
 
@@ -43,7 +82,7 @@ npm run build
 npm start
 ```
 
-Deploy: Vercel (`vercel.json` já aponta para o framework Next).
+Deploy: Netlify (`netlify.toml` já define build, publish, cabeçalhos e cache).
 
 ---
 
@@ -165,17 +204,13 @@ antes disso.
 
 ## O que ainda depende do cliente
 
-| Item                     | Onde entra                                    |
-| ------------------------ | --------------------------------------------- |
-| Número do WhatsApp       | `whatsappNumber` — **obrigatório**             |
-| Link do estoque          | `stockUrl`                                     |
-| Perfil e avaliações Google | `googleProfileUrl`, `googleReviewsUrl`       |
-| Nota e nº de avaliações  | `googleRating`, `googleReviewsCount`           |
-| Depoimentos reais        | `reviews[]`                                    |
-| Latitude / longitude     | `address.latitude`, `address.longitude`        |
-| Horário de funcionamento | `openingHours` (valores atuais são presumidos) |
-| Fotografia do hero       | `heroImage`                                    |
-| GTM / GA4 / Meta Pixel   | `analytics`                                    |
+| Item                   | Onde entra                              |
+| ---------------------- | --------------------------------------- |
+| Latitude / longitude   | `address.latitude`, `address.longitude` |
+| E-mail comercial       | `email`                                 |
+| Fotografia do hero     | `heroImage`                             |
+| GTM / GA4 / Meta Pixel | `analytics`                             |
+| Webhook de CRM         | `leadWebhookUrl`                        |
 
-Sem esses dados a página continua completa e coerente — ela simplesmente não
-afirma o que ainda não pode provar.
+Nenhum deles bloqueia nada: sem esses dados a página continua completa e
+coerente — ela simplesmente não afirma o que não pode provar.

@@ -42,13 +42,11 @@ export function ActionBar() {
       onClick: () => track('click_maps', { origin: 'action_bar' }),
     },
     {
+      // As avaliações reais estão na própria página: manter o visitante aqui
+      // converte mais do que jogá-lo para fora logo no primeiro toque.
       label: 'Avaliações',
       icon: Star,
-      href: siteConfig.googleReviewsUrl || siteConfig.googleProfileUrl || undefined,
-      onClick: () => {
-        track('click_google_profile', { origin: 'action_bar' })
-        if (!siteConfig.googleReviewsUrl && !siteConfig.googleProfileUrl) scrollToId('confianca')
-      },
+      onClick: () => scrollToId('confianca'),
     },
     {
       label: 'Instagram',

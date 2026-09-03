@@ -23,10 +23,33 @@ export function StructuredData() {
       ? {
           aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: siteConfig.googleRating,
+            // o schema exige ponto decimal; a interface mostra vírgula
+            ratingValue: siteConfig.googleRating.replace(',', '.'),
             reviewCount: siteConfig.googleReviewsCount,
             bestRating: '5',
+            worstRating: '1',
           },
+        }
+      : {}
+
+  const reviews =
+    siteConfig.reviews.length > 0
+      ? {
+          review: siteConfig.reviews.map((r) => ({
+            '@type': 'Review',
+            author: { '@type': 'Person', name: r.author },
+            reviewBody: r.text,
+            ...(r.rating
+              ? {
+                  reviewRating: {
+                    '@type': 'Rating',
+                    ratingValue: String(r.rating),
+                    bestRating: '5',
+                    worstRating: '1',
+                  },
+                }
+              : {}),
+          })),
         }
       : {}
 
@@ -53,7 +76,8 @@ export function StructuredData() {
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: address.street,
+      // Schema.org não tem campo de bairro: a convenção é anexá-lo ao logradouro.
+      streetAddress: address.district ? `${address.street} - ${address.district}` : address.street,
       addressLocality: address.city,
       addressRegion: address.state,
       addressCountry: address.country,
@@ -61,15 +85,18 @@ export function StructuredData() {
     },
     ...geo,
     ...rating,
+    ...reviews,
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     ...(siteConfig.email ? { email: siteConfig.email } : {}),
     ...(sameAs.length ? { sameAs } : {}),
-    openingHoursSpecification: openingHours.map((slot) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: slot.days,
-      opens: slot.opens,
-      closes: slot.closes,
-    })),
+    openingHoursSpecification: openingHours
+      .filter((slot) => !slot.closed && slot.opens && slot.closes)
+      .map((slot) => ({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: slot.days,
+        opens: slot.opens,
+        closes: slot.closes,
+      })),
     knowsAbout: ['Carros seminovos', 'Carros usados', 'Avaliação de veículos', 'Troca de veículos'],
   }
 

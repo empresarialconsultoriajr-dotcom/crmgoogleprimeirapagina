@@ -34,7 +34,10 @@ export function Location() {
                 {siteConfig.address.street}
               </p>
               <p className="mt-2 text-[15px] text-bone/60">
-                {siteConfig.address.city} – {siteConfig.address.state}
+                {siteConfig.address.district}, {siteConfig.address.city} – {siteConfig.address.state}
+              </p>
+              <p className="mt-1 text-[13px] tabular-nums text-bone/50">
+                CEP {siteConfig.address.postalCode}
               </p>
             </div>
           </Reveal>
@@ -47,7 +50,7 @@ export function Location() {
                   <div key={slot.label} className="flex items-baseline justify-between gap-6">
                     <dt className="text-[14px] text-bone/70">{slot.label}</dt>
                     <dd className="text-[14px] tabular-nums text-bone/50">
-                      {slot.opens} — {slot.closes}
+                      {slot.closed ? 'Fechado' : `${slot.opens} — ${slot.closes}`}
                     </dd>
                   </div>
                 ))}
@@ -84,7 +87,7 @@ export function Location() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track('click_google_profile', { origin: 'location' })}
-                className="link-quiet mt-9 text-[11px] uppercase tracking-[0.2em]"
+                className="link-quiet mt-7 inline-flex min-h-[44px] items-center py-2 text-[11px] uppercase tracking-[0.2em]"
               >
                 Conhecer nosso perfil no Google
                 <ArrowUpRight size={14} strokeWidth={1.5} aria-hidden />
