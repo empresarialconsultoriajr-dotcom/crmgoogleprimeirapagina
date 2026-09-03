@@ -1,0 +1,14 @@
+# Espelha os cabeçalhos do netlify.toml para o deploy manual (zip),
+# onde o netlify.toml não é aplicado por não haver etapa de build.
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()

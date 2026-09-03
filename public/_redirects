@@ -1,0 +1,4 @@
+# Página única: qualquer rota cai no index.html.
+# Necessário para o deploy manual (arrastar o zip), onde o netlify.toml
+# não é aplicado por não haver etapa de build.
+/*  /index.html  200
