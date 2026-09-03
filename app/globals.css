@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shell-x: 22px;
+    --hairline: rgba(255, 255, 255, 0.08);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --gold-line: rgba(207, 160, 96, 0.32);
+    color-scheme: dark;
+  }
+
+  @media (min-width: 768px) {
+    :root { --shell-x: 40px; }
+  }
+  @media (min-width: 1280px) {
+    :root { --shell-x: 64px; }
+  }
+
+  /* Todo fio sem cor declarada nasce como hairline da marca. */
+  *, ::before, ::after {
+    border-color: var(--hairline);
+  }
+
+  * { -webkit-tap-highlight-color: transparent; }
+
+  html {
+    scroll-behavior: smooth;
+    /* compensa a barra fixa inferior ao ancorar seções */
+    scroll-padding-top: 24px;
+  }
+
+  body {
+    @apply bg-ink text-bone/70 font-sans antialiased;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(207, 160, 96, 0.28);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-bone;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  /* Foco visível e elegante — nunca o anel azul do sistema. */
+  :focus-visible {
+    outline: 1px solid #cfa060;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Evita o zoom automático do iOS em campos de formulário. */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Entrada do hero em CSS puro: começa na primeira pintura, sem esperar
+     a hidratação. É o que mantém o LCP baixo mesmo com a sequência de
+     revelação. O atraso de cada elemento vem de --enter-delay. */
+  @keyframes editorial-rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 22px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .enter {
+    animation: editorial-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--enter-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  /* Revelação por scroll: o estado inicial é CSS, o gatilho é
+     IntersectionObserver. Sem biblioteca de animação envolvida. */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition:
+      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay, 0ms),
+      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--enter-delay, 0ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  /* ---------- Estrutura ---------- */
+  .shell {
+    width: 100%;
+    max-width: theme('maxWidth.shell');
+    margin-inline: auto;
+    padding-inline: var(--shell-x);
+  }
+
+  /* Malha arquitetônica: colunas finíssimas que sustentam a composição. */
+  .architecture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    max-width: theme('maxWidth.shell');
+    margin-inline: auto;
+    padding-inline: var(--shell-x);
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .architecture { display: block; }
+    .architecture::before {
+      content: '';
+      position: absolute;
+      inset: 0 var(--shell-x);
+      background-image: linear-gradient(to right, var(--hairline) 1px, transparent 1px);
+      background-size: calc(100% / 6) 100%;
+      opacity: 0.5;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    }
+  }
+
+  /* Grão fotográfico: mata o banding dos gradientes escuros. */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: -50%;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- Tipografia ---------- */
+  .label {
+    @apply text-[10px] uppercase tracking-label text-bone/55;
+    font-weight: 500;
+  }
+  @media (min-width: 768px) {
+    .label { @apply text-[11px]; }
+  }
+
+  .label-gold { @apply label text-gold/85; }
+
+  .display {
+    @apply text-bone font-normal tracking-headline;
+    line-height: 1.04;
+    font-variation-settings: 'wght' 450;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--hairline);
+  }
+
+  .rule-gold {
+    height: 1px;
+    width: 44px;
+    background: linear-gradient(to right, #cfa060, rgba(207, 160, 96, 0));
+  }
+
+  /* ---------- Superfícies ---------- */
+  .surface {
+    background:
+      radial-gradient(120% 100% at 50% -20%, rgba(207, 160, 96, 0.055), transparent 62%),
+      linear-gradient(180deg, #000000, #0b0b0b 55%, #000000);
+  }
+
+  .panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.008));
+    border: 1px solid var(--hairline);
+  }
+
+  /* ---------- Controles ---------- */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2.5 select-none;
+    @apply whitespace-nowrap text-[12px] uppercase tracking-[0.2em] font-medium;
+    min-height: 52px;
+    padding-inline: 26px;
+    transition: color 0.5s theme('transitionTimingFunction.editorial'),
+      background-color 0.5s theme('transitionTimingFunction.editorial'),
+      border-color 0.5s theme('transitionTimingFunction.editorial');
+  }
+
+  .btn-primary {
+    @apply text-ink;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+  }
+  .btn-primary:hover { background: #cfa060; border-color: #cfa060; color: #000; }
+
+  .btn-ghost {
+    @apply text-bone/85;
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+  }
+  .btn-ghost:hover { border-color: rgba(207, 160, 96, 0.7); color: #fff; }
+
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Underline que cresce da esquerda — assinatura de interação da marca. */
+  .link-quiet {
+    @apply relative inline-flex items-center gap-2 text-bone/70 transition-colors duration-500;
+  }
+  .link-quiet::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background: #cfa060;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s theme('transitionTimingFunction.editorial');
+  }
+  .link-quiet:hover { @apply text-bone; }
+  .link-quiet:hover::after { transform: scaleX(1); }
+
+  /* ---------- Formulário ---------- */
+  .field {
+    @apply w-full bg-transparent text-bone placeholder:text-bone/50;
+    min-height: 52px;
+    padding: 14px 2px;
+    border: 0;
+    border-bottom: 1px solid var(--hairline);
+    border-radius: 0;
+    transition: border-color 0.4s theme('transitionTimingFunction.editorial');
+  }
+  .field:hover { border-bottom-color: var(--hairline-strong); }
+  .field:focus {
+    outline: none;
+    border-bottom-color: #cfa060;
+  }
+  .field:focus-visible { outline: none; }
+  .field[aria-invalid='true'] { border-bottom-color: rgba(224, 122, 95, 0.85); }
+
+  textarea.field { min-height: 92px; resize: vertical; }
+
+  select.field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23cfa060' stroke-width='1.3'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    padding-right: 26px;
+  }
+  select.field option { background: #0d0d0d; color: #fff; }
+
+  /* Opção-lista: linha editorial, não card genérico. */
+  .option {
+    @apply relative flex w-full items-center gap-4 text-left text-bone/70;
+    min-height: 56px;
+    padding: 14px 18px 14px 20px;
+    border: 1px solid var(--hairline);
+    background: rgba(255, 255, 255, 0.012);
+    transition: color 0.45s theme('transitionTimingFunction.editorial'),
+      border-color 0.45s theme('transitionTimingFunction.editorial'),
+      background-color 0.45s theme('transitionTimingFunction.editorial');
+  }
+  .option::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #cfa060;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s theme('transitionTimingFunction.editorial');
+  }
+  .option:hover { color: #fff; border-color: var(--hairline-strong); }
+  .option[data-selected='true'] {
+    color: #fff;
+    border-color: rgba(207, 160, 96, 0.42);
+    background: rgba(207, 160, 96, 0.055);
+  }
+  .option[data-selected='true']::before { transform: scaleY(1); }
+
+  /* ---------- Utilitários ---------- */
+  .edge-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent);
+  }
+
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
