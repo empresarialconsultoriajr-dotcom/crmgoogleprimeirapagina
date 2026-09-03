@@ -1,0 +1,41 @@
+# Configuração de deploy no Netlify.
+# O site é estático (Vite): o Netlify roda o build e publica a pasta dist/.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 5 exige Node 18+. Fixado para o build não mudar de comportamento
+  # quando o Netlify atualizar o padrão dele.
+  NODE_VERSION = "20"
+
+# Página única: qualquer rota cai no index.html.
+# Deixa o site preparado para ganhar rotas (/alem-das-redes, /parcerias)
+# sem quebrar link compartilhado ou refresh de página.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Os arquivos de assets levam hash no nome a cada build,
+# então podem ser cacheados para sempre.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Imagens de public/ NÃO levam hash. Cache curto para que trocar
+# uma foto reflita no site sem esperar cache do visitante.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
