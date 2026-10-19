@@ -1,0 +1,405 @@
+// Conteúdo dos dez dias de consagração.
+// Os resumos descrevem fielmente o texto bíblico; as aplicações são sugestões pessoais, não palavras de Deus.
+export const START_DATE = '2026-10-19';
+
+export const DAYS = [
+  {
+    n: 1,
+    date: '2026-10-19',
+    title: 'Entrega e rendição',
+    theme: 'Reconhecer o que tento controlar e entregar a Deus as minhas preocupações.',
+    message: 'Entregar não é desistir. É parar de carregar sozinho aquilo que nunca foi seu para carregar.',
+    mainRef: 'Salmo 37:3–7',
+    readings: [
+      {
+        ref: 'Salmo 37:3–7',
+        context: 'Salmo atribuído a Davi, de caráter sapiencial. Ele responde à inquietação de quem vê pessoas injustas prosperando e se pergunta se vale a pena permanecer íntegro. A resposta do salmo é um convite à confiança paciente.',
+        summary: 'O trecho reúne uma sequência de convites: confiar no Senhor e praticar o bem; habitar a terra com fidelidade; ter prazer no Senhor; entregar a Ele o próprio caminho e confiar que Ele agirá; descansar e esperar com paciência, sem se irritar com quem parece se dar bem agindo de forma errada.',
+        application: 'Os verbos do salmo (confiar, fazer o bem, entregar, descansar, esperar) descrevem uma postura ativa, não passiva. Hoje, a aplicação é identificar com honestidade o que você está tentando controlar e devolver isso a Deus, continuando a fazer o que é correto na sua parte.',
+      },
+    ],
+    questions: [
+      'Qual dos verbos do salmo (confiar, fazer o bem, entregar, descansar, esperar) é mais difícil para mim neste momento, e por quê?',
+      'O salmo pede para não se irritar com o que parece injusto. Qual situação atual me faz sentir que as coisas não estão como deveriam?',
+      'O que mudaria no meu dia de hoje se eu realmente acreditasse que o resultado está nas mãos de Deus?',
+    ],
+    prayer: 'Senhor, eu reconheço que tenho tentado segurar nas mãos coisas que não me pertencem. Entrego a Ti o meu relacionamento com a Dani, as minhas preocupações e o meu medo de perder. Ensina-me a confiar sem exigir prazos, a fazer o bem sem cobrar retorno e a descansar sem desistir das minhas responsabilidades. Que hoje eu seja fiel no que depende de mim e paciente no que não depende. Em nome de Jesus, amém.',
+    exercise: {
+      type: 'columns',
+      title: 'Duas colunas',
+      intro: 'Separe com honestidade o que depende das suas atitudes e o que não depende de você. Seja específico: situações, pessoas, decisões, prazos.',
+      columns: [
+        { key: 'mine', label: 'Depende das minhas atitudes', placeholder: 'Ex.: cumprir meus horários na DClin' },
+        { key: 'notMine', label: 'Não depende de mim', placeholder: 'Ex.: a decisão da Dani sobre o futuro' },
+      ],
+    },
+    practice: 'Não buscar uma resposta imediata da Dani por ansiedade. Se surgir a vontade, use o botão "Preciso de ajuda agora".',
+    journalQuestion: 'O que estou tentando controlar porque tenho medo de perder?',
+  },
+  {
+    n: 2,
+    date: '2026-10-20',
+    title: 'Arrependimento e fidelidade',
+    theme: 'Examinar minhas atitudes sem me condenar e identificar onde preciso agir com mais coerência.',
+    message: 'Arrependimento não é se punir. É olhar a verdade sobre si mesmo diante de Deus e mudar de direção.',
+    mainRef: 'Salmo 139:23–24',
+    readings: [
+      {
+        ref: 'Salmo 139:23–24',
+        context: 'Encerramento do Salmo 139, em que Davi reflete sobre o conhecimento completo que Deus tem dele: seus pensamentos, caminhos e palavras. Depois de reconhecer que não há lugar onde possa se esconder de Deus, ele conclui com um pedido.',
+        summary: 'Davi pede que Deus o sonde e conheça o seu coração, que o prove e conheça os seus pensamentos inquietos, que veja se há nele algum caminho mau e que o guie pelo caminho eterno.',
+        application: 'O salmista não faz uma autoanálise solitária: ele convida Deus a examinar. A aplicação é fazer um exame honesto das próprias atitudes com a confiança de quem já é conhecido e amado, sem autocondenação e sem autoengano.',
+      },
+      {
+        ref: 'Lucas 16:10',
+        context: 'Jesus acaba de contar a parábola do administrador infiel (Lucas 16:1–9) e extrai lições sobre o uso dos bens e a confiabilidade. O versículo faz parte dessa conclusão.',
+        summary: 'Jesus afirma que quem é fiel no pouco também é fiel no muito, e quem é desonesto no pouco também é desonesto no muito.',
+        application: 'A fidelidade se revela nas coisas pequenas e cotidianas, não apenas nos grandes momentos. Hoje, isso se aplica às responsabilidades que você vem adiando e às pequenas coerências que ninguém vê.',
+      },
+    ],
+    questions: [
+      'Se Deus me sondasse hoje, que "pensamento inquieto" Ele encontraria com mais frequência?',
+      'Que justificativa eu costumo usar para adiar uma responsabilidade ou para agir movido pelo medo?',
+      'Em que coisa pequena eu posso ser fiel hoje, ainda que ninguém veja?',
+    ],
+    prayer: 'Senhor, sonda-me e conhece o meu coração. Mostra-me as atitudes que tenho justificado, os padrões que repito e as áreas em que não tenho sido coerente com o que creio. Não quero me esconder nem me condenar; quero mudar de direção. Dá-me coragem para cumprir hoje aquilo que venho adiando e para ser fiel no pouco. Amém.',
+    exercise: {
+      type: 'columns',
+      title: 'Atitudes, justificativas e padrões',
+      intro: 'Liste atitudes recentes que precisa corrigir, as justificativas que costuma usar e os padrões que se repetem. Não é uma lista de culpa; é um mapa.',
+      columns: [
+        { key: 'attitudes', label: 'Atitudes que preciso corrigir', placeholder: 'Ex.: mandar mensagem só para checar se ela responde' },
+        { key: 'excuses', label: 'Justificativas que uso', placeholder: 'Ex.: "é só para saber se está tudo bem"' },
+        { key: 'patterns', label: 'Padrões que se repetem', placeholder: 'Ex.: ansiedade à noite, depois de ver que ela está on-line' },
+      ],
+    },
+    practice: 'Cumprir hoje uma responsabilidade que venho adiando. Registre qual foi no compromisso do dia.',
+    journalQuestion: 'Em qual área preciso ser fiel mesmo quando ninguém está olhando?',
+  },
+  {
+    n: 3,
+    date: '2026-10-21',
+    title: 'Fidelidade sem resultados imediatos',
+    theme: 'Permanecer coerente mesmo quando as circunstâncias não correspondem às minhas expectativas.',
+    message: 'Fazer o correto porque é correto é diferente de fazer o correto para receber algo em troca.',
+    mainRef: 'Gálatas 6:9',
+    readings: [
+      {
+        ref: 'Gálatas 6:9',
+        context: 'Paulo conclui a carta aos gálatas com orientações práticas. Nos versículos anteriores (6:7–8), ele usa a imagem da semeadura: cada um colhe o que semeia, seja para a carne, seja para o Espírito.',
+        summary: 'Paulo exorta a não desanimar de fazer o bem, porque no tempo próprio haverá colheita, se não houver desistência.',
+        application: 'O texto fala de uma colheita "no tempo próprio", não no tempo que desejamos, e não especifica qual será o fruto. A aplicação é continuar semeando o que é bom sem transformar a fidelidade em moeda de troca por um resultado específico.',
+      },
+      {
+        ref: 'Habacuque 3:17–19',
+        context: 'O profeta Habacuque havia questionado Deus sobre a injustiça e sobre o uso dos babilônios como instrumento de juízo. O capítulo 3 é a sua oração final, depois de ouvir a resposta de Deus.',
+        summary: 'Habacuque descreve um cenário de perda total: figueira sem flor, vinhas sem fruto, campos sem alimento, currais sem rebanho. Mesmo assim, declara que se alegrará no Senhor, que é a sua força e torna firmes os seus passos.',
+        application: 'A alegria do profeta não vem das circunstâncias, mas de quem Deus é. A aplicação é perguntar com honestidade se a sua busca por Deus depende de um resultado no relacionamento ou se permaneceria mesmo sem ele.',
+      },
+    ],
+    questions: [
+      'Em que área sinto vontade de desanimar porque os resultados não aparecem?',
+      'Habacuque se alegra mesmo diante da perda. O que, na minha vida, continuaria sendo verdadeiro sobre Deus se eu perdesse o que mais temo perder?',
+      'Alguma das minhas práticas espirituais desta semana está sendo feita "para" conseguir algo da Dani ou de Deus?',
+    ],
+    prayer: 'Senhor, eu quero Te buscar por quem Tu és, e não pelo que posso receber. Perdoa-me quando transformo oração e jejum em negociação. Ensina-me a permanecer fiel mesmo sem ver resultados, a fazer o bem sem cobrar e a encontrar em Ti a minha força quando as circunstâncias não correspondem ao que eu esperava. Amém.',
+    exercise: {
+      type: 'columns',
+      title: 'Correto versus recompensa',
+      intro: 'Identifique a diferença entre fazer o que é correto e fazer algo esperando uma recompensa específica. Liste exemplos concretos dos últimos dias.',
+      columns: [
+        { key: 'right', label: 'Fiz porque é correto', placeholder: 'Ex.: entreguei o relatório da clínica no prazo' },
+        { key: 'reward', label: 'Fiz esperando algo em troca', placeholder: 'Ex.: orei em voz alta esperando que ela percebesse' },
+      ],
+    },
+    practice: 'Não usar minha dedicação espiritual como moeda de troca por uma resposta sobre o relacionamento. Não comentar com a Dani o que estou fazendo neste propósito para provocar reação.',
+    journalQuestion: 'Eu continuaria buscando a Deus se o resultado não fosse aquele que desejo?',
+  },
+  {
+    n: 4,
+    date: '2026-10-22',
+    title: 'Jejum digital e domínio próprio',
+    theme: 'Reduzir estímulos que alimentam ansiedade, comparação e impulsividade.',
+    message: 'Aquilo que você consome em silêncio molda o que você sente em voz alta.',
+    mainRef: 'Provérbios 4:23',
+    readings: [
+      {
+        ref: 'Provérbios 4:23',
+        context: 'Provérbios 4 é a instrução de um pai ao filho sobre o caminho da sabedoria. O capítulo termina com orientações sobre coração, boca, olhos e pés, isto é, sobre a vida inteira.',
+        summary: 'O texto orienta a guardar o coração acima de tudo o que se deve guardar, porque dele procedem as fontes (ou saídas) da vida.',
+        application: 'O "coração", na linguagem bíblica, é o centro das decisões, desejos e pensamentos. Guardar o coração inclui vigiar o que entra por ele. Hoje, a aplicação é reconhecer os gatilhos que levam a verificar redes sociais e decidir o que você deixará entrar.',
+      },
+      {
+        ref: '1 Coríntios 6:12',
+        context: 'Paulo responde a cristãos de Corinto que usavam a frase "tudo me é permitido" para justificar comportamentos. Ele não nega a liberdade, mas a coloca em perspectiva.',
+        summary: 'Paulo afirma que, embora tudo lhe seja permitido, nem tudo convém; e que, embora tudo lhe seja permitido, ele não se deixará dominar por coisa alguma.',
+        application: 'Abrir uma rede social não é pecado em si. A pergunta de Paulo é outra: isso convém? Isso me domina? A aplicação é olhar com honestidade para o que já exerce domínio sobre você.',
+      },
+    ],
+    questions: [
+      'Em que momentos do dia eu sinto mais vontade de verificar as redes ou procurar informações sobre a Dani?',
+      'O que eu espero sentir ao abrir a rede social? E o que normalmente sinto depois?',
+      'Que hábito digital já me domina, no sentido de 1 Coríntios 6:12?',
+    ],
+    prayer: 'Senhor, guarda o meu coração. Reconheço que tenho buscado nas redes sociais sinais, alívio e respostas que não me cabem procurar ali. Dá-me domínio próprio para não vigiar a Dani, para não interpretar cada publicação e para usar o celular apenas com propósito. Que eu encontre em Ti a paz que tenho tentado encontrar numa tela. Amém.',
+    exercise: {
+      type: 'columns',
+      title: 'Mapa de gatilhos',
+      intro: 'Identifique os gatilhos que te levam a abrir redes sociais ou procurar informações sobre a Dani, e o que você pode fazer no lugar.',
+      columns: [
+        { key: 'triggers', label: 'Gatilhos (situação, horário, emoção)', placeholder: 'Ex.: deitar na cama sem sono' },
+        { key: 'alternatives', label: 'O que farei no lugar', placeholder: 'Ex.: deixar o celular fora do quarto e ler' },
+      ],
+    },
+    practice: 'Não monitorar stories, status, horários de atividade ou interações da Dani. Usar o celular para trabalho, família e necessidades legítimas. Registrar cada vontade no painel do jejum digital.',
+    journalQuestion: 'O que estou buscando quando sinto vontade de verificar as redes sociais?',
+  },
+  {
+    n: 5,
+    date: '2026-10-23',
+    title: 'Cura emocional e identidade',
+    theme: 'Reconhecer sentimentos sem permitir que eles determinem todas as minhas ações.',
+    message: 'Sentir medo não é fraqueza. Deixar o medo decidir por você é o que precisa mudar.',
+    mainRef: 'Salmo 34:18',
+    readings: [
+      {
+        ref: 'Salmo 34:18',
+        context: 'Salmo de Davi ligado ao episódio em que ele fingiu loucura diante do rei de Gate para escapar (1 Samuel 21). É um salmo de gratidão escrito por alguém que conheceu medo, humilhação e fuga.',
+        summary: 'O versículo afirma que o Senhor está perto dos que têm o coração quebrantado e salva os de espírito abatido.',
+        application: 'O texto não promete que a dor desaparecerá imediatamente; promete proximidade. A aplicação é levar a Deus os seus medos e inseguranças sem precisar resolvê-los todos hoje.',
+      },
+      {
+        ref: 'Salmo 139:13–18',
+        context: 'Parte central do Salmo 139. Depois de falar da onipresença de Deus, Davi reflete sobre a própria formação no ventre materno e sobre o cuidado de Deus desde antes do nascimento.',
+        summary: 'Davi declara que Deus formou o seu interior e o teceu no ventre de sua mãe; que ele foi feito de modo admirável; que seus dias foram conhecidos por Deus antes de existirem; e que os pensamentos de Deus a seu respeito são preciosos e incontáveis.',
+        application: 'A identidade do salmista não depende de quem o aceita ou rejeita; ela vem de quem o formou. A aplicação é separar quem você é daquilo que a incerteza atual diz sobre você.',
+      },
+    ],
+    questions: [
+      'Que sentimento tenho evitado nomear nos últimos dias?',
+      'Se a minha identidade vem de quem me formou, o que a rejeição ou a aceitação de outra pessoa pode e não pode definir em mim?',
+      'Que necessidade emocional legítima eu tenho tentado suprir apenas por meio da Dani?',
+    ],
+    prayer: 'Senhor, Tu estás perto dos que têm o coração quebrantado, e hoje eu me aproximo assim. Apresento a Ti os meus medos, a minha insegurança e a minha necessidade de aprovação. Lembra-me de que fui formado por Ti e de que o meu valor não depende de uma resposta humana. Cura o que está ferido e ensina-me a sentir sem ser governado pelo que sinto. Amém.',
+    exercise: {
+      type: 'text',
+      title: 'Escrita livre',
+      intro: 'Escreva sobre medos, inseguranças e necessidades emocionais, sem tentar resolver tudo agora. Nomear já é parte do cuidado.',
+      prompts: [
+        { key: 'fears', label: 'Medos', placeholder: 'Do que tenho medo, de verdade?' },
+        { key: 'insecurities', label: 'Inseguranças', placeholder: 'Onde me sinto insuficiente ou substituível?' },
+        { key: 'needs', label: 'Necessidades emocionais', placeholder: 'Do que preciso, independentemente de quem supre?' },
+      ],
+    },
+    practice: 'Realizar uma atividade saudável que não dependa da atenção ou da aprovação de outra pessoa (treino, caminhada, leitura, um encontro com um amigo, um projeto pessoal).',
+    journalQuestion: 'Quem sou eu e como quero viver independentemente da incerteza atual?',
+  },
+  {
+    n: 6,
+    date: '2026-10-24',
+    title: 'Amor maduro e respeito',
+    theme: 'Compreender a diferença entre amar, controlar, insistir e tentar convencer alguém.',
+    message: 'Amor maduro respeita a liberdade do outro e preserva a própria dignidade. As duas coisas ao mesmo tempo.',
+    mainRef: '1 Coríntios 13:4–7',
+    readings: [
+      {
+        ref: '1 Coríntios 13:4–7',
+        context: 'Paulo escreve a uma igreja dividida e orgulhosa de seus dons espirituais. No capítulo 13 ele mostra "um caminho ainda mais excelente": sem amor, nenhum dom tem valor.',
+        summary: 'O amor é descrito por aquilo que faz e por aquilo que não faz: é paciente e bondoso; não inveja, não se vangloria, não se orgulha, não se porta de modo inconveniente, não busca os próprios interesses, não se irrita, não guarda rancor; não se alegra com a injustiça, mas com a verdade; tudo suporta, crê, espera e suporta.',
+        application: 'A lista descreve um amor que não controla nem pressiona. "Não busca os próprios interesses" e "tudo espera" caminham juntos: esperar sem exigir. A aplicação é comparar suas atitudes recentes com cada item do texto.',
+      },
+      {
+        ref: 'Filipenses 2:3–4',
+        context: 'Paulo pede unidade à igreja de Filipos e, logo em seguida (2:5–11), apresenta o exemplo de Cristo, que se esvaziou e se humilhou.',
+        summary: 'O texto orienta a nada fazer por rivalidade ou vaidade, mas, com humildade, considerar os outros superiores a si mesmo, cuidando não apenas dos próprios interesses, mas também dos interesses dos outros.',
+        application: 'Considerar o interesse da Dani inclui respeitar o tempo que ela pediu. Cuidar dos próprios interesses também é legítimo: o texto diz "não apenas", não "nunca". A aplicação é equilíbrio entre respeito ao outro e cuidado com os próprios limites.',
+      },
+    ],
+    questions: [
+      'Qual item de 1 Coríntios 13:4–7 descreve melhor o que tenho feito, e qual descreve o que tenho deixado de fazer?',
+      'Alguma das minhas atitudes recentes tentou convencer, agradar ou provar algo em vez de amar?',
+      'Como posso cuidar do interesse da Dani (seu espaço) e do meu (meus limites) no mesmo dia?',
+    ],
+    prayer: 'Senhor, ensina-me a amar como a Tua Palavra descreve: com paciência, sem exigir, sem guardar mágoa, sem buscar apenas os meus interesses. Quero respeitar o espaço que a Dani pediu sem desaparecer de propósito e sem usar frieza como estratégia. Ajuda-me a amar com liberdade e dignidade, deixando a decisão dela nas mãos dela. Amém.',
+    exercise: {
+      type: 'columns',
+      title: 'Amor saudável versus medo de perder',
+      intro: 'Liste atitudes que demonstram amor saudável e atitudes que podem nascer do medo de perder.',
+      columns: [
+        { key: 'love', label: 'Nascem de amor saudável', placeholder: 'Ex.: responder com naturalidade quando ela me procura' },
+        { key: 'fear', label: 'Nascem do medo de perder', placeholder: 'Ex.: mandar mensagem para "testar" se ela ainda se importa' },
+      ],
+    },
+    practice: 'Respeitar o espaço solicitado sem desaparecer de propósito e sem usar frieza para provocar uma reação. Se houver contato, responder com naturalidade.',
+    journalQuestion: 'Minha atitude de hoje respeita a liberdade dela e também minha dignidade?',
+  },
+  {
+    n: 7,
+    date: '2026-10-25',
+    title: 'Fidelidade nas pequenas coisas',
+    theme: 'Demonstrar fidelidade por meio das responsabilidades diárias.',
+    message: 'Integridade é fazer bem o que precisa ser feito, mesmo num dia em que o coração está instável.',
+    mainRef: 'Colossenses 3:23–24',
+    readings: [
+      {
+        ref: 'Lucas 16:10',
+        context: 'Conclusão da parábola do administrador infiel. Jesus relaciona a confiabilidade nas pequenas coisas com a confiabilidade nas grandes.',
+        summary: 'Quem é fiel no pouco é fiel também no muito; quem é desonesto no pouco é desonesto também no muito.',
+        application: 'Horários, entregas, promessas pequenas: é ali que a fidelidade se prova. A aplicação hoje é planejar e cumprir as responsabilidades concretas do dia.',
+      },
+      {
+        ref: 'Colossenses 3:23–24',
+        context: 'Parte das instruções de Paulo para a vida doméstica e de trabalho na igreja de Colossos. O trecho é dirigido a servos, mas o princípio vale para qualquer trabalho.',
+        summary: 'O texto orienta que tudo o que se faça seja feito de coração, como para o Senhor e não para pessoas, sabendo que do Senhor vem a recompensa, pois é a Cristo que se serve.',
+        application: 'Trabalhar "como para o Senhor" muda o motivo: a excelência na DClin não é para ser notado pela Dani, mas porque o trabalho tem valor diante de Deus. A aplicação é separar claramente o profissional do emocional.',
+      },
+    ],
+    questions: [
+      'Em que responsabilidade pequena eu tenho sido menos confiável do que gostaria?',
+      'O que mudaria no meu trabalho na DClin se eu o fizesse "como para o Senhor" e não para ser notado?',
+      'Em que momento recente usei uma questão profissional para buscar proximidade emocional?',
+    ],
+    prayer: 'Senhor, que o meu trabalho hoje seja feito de coração, como para Ti. Ajuda-me a ser confiável nas coisas pequenas, a manter os compromissos da DClin com excelência e a não misturar as demandas da clínica com as minhas necessidades emocionais. Que a minha integridade não dependa do meu humor. Amém.',
+    exercise: {
+      type: 'work',
+      title: 'Planejamento de responsabilidades',
+      intro: 'Planeje as principais responsabilidades pessoais e profissionais do dia no módulo Trabalho e DClin. Defina a principal responsabilidade e três prioridades.',
+    },
+    practice: 'Trabalhar com excelência, manter os compromissos da DClin e não usar questões profissionais para buscar proximidade emocional.',
+    journalQuestion: 'Como posso ser íntegro quando minhas emoções estão instáveis?',
+  },
+  {
+    n: 8,
+    date: '2026-10-26',
+    title: 'Espera, paciência e sabedoria',
+    theme: 'Aprender a esperar sem paralisar minha vida ou ignorar minhas necessidades.',
+    message: 'Esperar com sabedoria não é ficar parado. É continuar vivendo enquanto a resposta não vem.',
+    mainRef: 'Tiago 1:2–5',
+    readings: [
+      {
+        ref: 'Tiago 1:2–5',
+        context: 'Tiago escreve a cristãos dispersos que enfrentavam provações. Ele abre a carta tratando do sentido das dificuldades e da necessidade de sabedoria.',
+        summary: 'Tiago orienta a considerar motivo de alegria as provações, porque a prova da fé produz perseverança; a perseverança deve completar a sua obra para que a pessoa se torne madura e íntegra. E, se alguém tem falta de sabedoria, deve pedi-la a Deus, que dá a todos generosamente, sem censurar.',
+        application: 'A provação não é desejável em si, mas pode produzir maturidade. E sabedoria é algo a pedir, não a presumir. A aplicação é pedir discernimento para distinguir espera saudável de permanência sem clareza.',
+      },
+      {
+        ref: 'Isaías 40:31',
+        context: 'Isaías 40 abre a seção de consolo do livro, dirigida a um povo cansado e exilado. O capítulo contrasta a grandeza de Deus com a fraqueza humana.',
+        summary: 'O versículo afirma que os que esperam no Senhor renovam as suas forças: sobem com asas como águias, correm sem se cansar e caminham sem desfalecer.',
+        application: 'Esperar no Senhor, no texto, é fonte de força para continuar correndo e caminhando, não para parar. A aplicação é manter a vida em movimento (trabalho, saúde, amizades, fé) enquanto se espera.',
+      },
+    ],
+    questions: [
+      'O que, na minha situação atual, é uma espera saudável, e o que seria permanecer indefinidamente sem clareza?',
+      'Que sabedoria específica preciso pedir a Deus hoje?',
+      'Que parte da minha vida eu paralisei enquanto espero uma resposta da Dani?',
+    ],
+    prayer: 'Senhor, dá-me sabedoria, como Tiago ensina a pedir. Mostra-me a diferença entre esperar com paciência e me anular por medo. Renova as minhas forças para continuar trabalhando, cuidando da minha saúde e vivendo com propósito enquanto não há clareza. Que eu respeite o tempo da Dani sem abandonar os meus limites. Amém.',
+    exercise: {
+      type: 'columns',
+      title: 'Espera saudável versus permanência sem clareza',
+      intro: 'Identifique o que caracteriza uma espera saudável e o que seria permanecer indefinidamente numa situação sem clareza. Inclua limites de tempo e sinais que você consideraria relevantes.',
+      columns: [
+        { key: 'healthy', label: 'Espera saudável', placeholder: 'Ex.: continuar vivendo normalmente enquanto ela busca clareza' },
+        { key: 'stuck', label: 'Permanência sem clareza', placeholder: 'Ex.: meses sem conversa sobre o futuro e sem nenhuma reciprocidade' },
+      ],
+    },
+    practice: 'Não iniciar uma conversa sobre o relacionamento apenas para aliviar a ansiedade do momento. Se a necessidade de conversar for real, planejar o momento com calma (módulo Relacionamento, situação C).',
+    journalQuestion: 'Como posso respeitar o tempo dela sem abandonar meus próprios limites?',
+  },
+  {
+    n: 9,
+    date: '2026-10-27',
+    title: 'Preparação para uma restauração saudável',
+    theme: 'Compreender que a restauração de uma relação exige participação, honestidade e disposição das duas pessoas.',
+    message: 'Você pode se preparar para ser um bom parceiro. Você não pode decidir pelos dois.',
+    mainRef: 'Efésios 4:1–3',
+    readings: [
+      {
+        ref: 'Efésios 4:1–3',
+        context: 'Depois de três capítulos sobre o que Deus fez em Cristo, Paulo passa às implicações práticas: como viver de modo digno dessa vocação, começando pela unidade.',
+        summary: 'Paulo exorta a andar de modo digno da vocação recebida, com toda humildade e mansidão, com paciência, suportando uns aos outros em amor, esforçando-se por preservar a unidade do Espírito pelo vínculo da paz.',
+        application: 'Humildade, mansidão, paciência e esforço pela paz são comportamentos que dependem de você. A aplicação é definir que tipo de parceiro você precisa ser, sem transformar isso numa meta para controlar a decisão dela.',
+      },
+      {
+        ref: 'Romanos 12:18',
+        context: 'Romanos 12 descreve a vida prática do cristão: culto racional, dons, amor sincero, relação com inimigos. O versículo está entre orientações sobre relacionamentos.',
+        summary: 'Paulo orienta: se possível, quanto depender de vocês, tenham paz com todos.',
+        application: 'O texto reconhece dois limites: "se possível" e "quanto depender de vocês". A paz nem sempre depende só de uma das partes. A aplicação é fazer a sua parte com honestidade e aceitar que a outra parte pertence à outra pessoa.',
+      },
+    ],
+    questions: [
+      'Quais comportamentos precisam existir (dos dois lados) para que o relacionamento seja saudável?',
+      'Entre humildade, mansidão, paciência e esforço pela paz, qual é o meu ponto mais fraco hoje?',
+      'O que "quanto depender de mim" inclui, e o que claramente não inclui?',
+    ],
+    prayer: 'Senhor, se houver uma oportunidade de reconstrução, que eu esteja preparado para ser um parceiro humilde, paciente e honesto. Mostra-me as mudanças que dependem de mim e livra-me de transformá-las em estratégia para conquistar uma decisão. Que eu busque a paz quanto depender de mim e respeite o que não depende. Amém.',
+    exercise: {
+      type: 'text',
+      title: 'Comportamentos de um relacionamento saudável',
+      intro: 'Escreva quais comportamentos precisam existir para que o relacionamento seja saudável, e quais mudanças dependem de você. Não estabeleça metas para a decisão dela.',
+      prompts: [
+        { key: 'needed', label: 'Comportamentos necessários (dos dois lados)', placeholder: 'Ex.: comunicação honesta sobre expectativas, respeito ao tempo de cada um' },
+        { key: 'mine', label: 'Mudanças que dependem de mim', placeholder: 'Ex.: parar de iniciar conversas por ansiedade' },
+        { key: 'limits', label: 'Limites que preciso preservar', placeholder: 'Ex.: não aceitar indefinição sem diálogo por tempo indeterminado' },
+      ],
+    },
+    practice: 'Identificar mudanças que dependem de mim, sem estabelecer metas para controlar a decisão dela.',
+    journalQuestion: 'Se houver uma oportunidade de reconstrução, que tipo de parceiro preciso ser?',
+  },
+  {
+    n: 10,
+    date: '2026-10-28',
+    title: 'Consagração, discernimento e continuidade',
+    theme: 'Avaliar o caminho percorrido e estabelecer uma rotina sustentável após os dez dias.',
+    message: 'O que foi construído em dez dias só permanece se tiver continuidade. O propósito termina; a caminhada não.',
+    mainRef: 'Provérbios 3:5–6',
+    readings: [
+      {
+        ref: 'Provérbios 3:5–6',
+        context: 'Instrução paterna sobre a sabedoria, dentro dos primeiros capítulos de Provérbios. O trecho é um dos mais conhecidos do livro.',
+        summary: 'O texto orienta a confiar no Senhor de todo o coração e não se apoiar no próprio entendimento; a reconhecê-lo em todos os caminhos, e Ele endireitará as veredas.',
+        application: 'Reconhecer a Deus em todos os caminhos inclui as decisões ainda não tomadas. O texto não diz qual será a vereda; diz quem a endireita. A aplicação é encerrar o propósito com confiança, sem forçar uma conclusão sobre a vontade de Deus para o namoro.',
+      },
+      {
+        ref: 'Filipenses 1:9–10',
+        context: 'Oração de Paulo pela igreja de Filipos, no início da carta. Ele agradece pela parceria deles e descreve o que pede a Deus a respeito deles.',
+        summary: 'Paulo ora para que o amor deles cresça cada vez mais em conhecimento e em discernimento, para que aprovem o que é excelente e sejam sinceros e irrepreensíveis até o dia de Cristo.',
+        application: 'Amor que cresce "em conhecimento e discernimento" é amor que amadurece, não apenas que sente mais. A aplicação é distinguir, ao final destes dias, fatos, sentimentos, expectativas e decisões que ainda precisam ser conversadas.',
+      },
+    ],
+    questions: [
+      'Comparando meus registros do Dia 1 com os de hoje, o que mudou nas minhas atitudes?',
+      'Em que eu ainda me apoio no meu próprio entendimento em vez de confiar?',
+      'Que hábitos destes dez dias quero manter nos próximos trinta?',
+    ],
+    prayer: 'Senhor, obrigado por estes dias. Não peço que a minha vontade seja feita, mas que eu reconheça a Ti em todos os meus caminhos. Que o meu amor cresça em discernimento, para que eu distinga fatos de medos e expectativas de decisões. Ajuda-me a manter o que aprendi e a continuar Te buscando depois que o propósito terminar. Amém.',
+    exercise: {
+      type: 'compare',
+      title: 'Dia 1 e Dia 10 lado a lado',
+      intro: 'Compare os registros do primeiro e do décimo dia. Separe o que são fatos, sentimentos, expectativas e decisões que ainda precisam ser conversadas.',
+      prompts: [
+        { key: 'facts', label: 'Fatos (o que de fato aconteceu nestes dias)', placeholder: 'Ex.: respeitei o espaço pedido; não monitorei redes em 8 dos 10 dias' },
+        { key: 'feelings', label: 'Sentimentos (o que sinto hoje)', placeholder: 'Ex.: ainda sinto medo, mas menos urgência' },
+        { key: 'expectations', label: 'Expectativas (o que desejo, sem confundir com fato)', placeholder: 'Ex.: desejo que o relacionamento continue' },
+        { key: 'decisions', label: 'Decisões que ainda precisam ser conversadas', placeholder: 'Ex.: como e quando conversar sobre o futuro' },
+      ],
+    },
+    practice: 'Construir um plano de continuidade de 30 dias (módulo Encerramento e continuidade).',
+    journalQuestion: 'O que mudou em minhas atitudes, independentemente do resultado do relacionamento?',
+  },
+];
+
+export function dayByDate(date) { return DAYS.find((d) => d.date === date) || null; }
+export function dayByN(n) { return DAYS.find((d) => d.n === n) || null; }
+
+export const MORNING_SCHEDULE = [
+  { time: '03:00', label: 'Despertar, oração e consagração' },
+  { time: '03:00–03:10', label: 'Silêncio, respiração tranquila e preparação' },
+  { time: '03:10–03:25', label: 'Leitura bíblica' },
+  { time: '03:25–03:40', label: 'Oração direcionada ao tema do dia' },
+  { time: '03:40–03:50', label: 'Escrita no diário espiritual' },
+  { time: '03:50–04:00', label: 'Definição de uma atitude prática para o dia' },
+  { time: '05:00', label: 'Treino físico' },
+  { time: 'Depois', label: 'Organização das prioridades e início do trabalho' },
+];
