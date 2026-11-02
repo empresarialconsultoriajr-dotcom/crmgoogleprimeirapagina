@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Clube Google Primeira Página — Projeto Executivo e Operacional</title>
+<style>
+:root{--black:#0B0F19;--graphite:#374151;--gray:#6B7280;--line:#E5E7EB;--soft:#F3F4F6;--blue:#1D4ED8;--blue-d:#1E3A8A;--blue-m:#3B82F6;--blue-l:#DBEAFE;--blue-xl:#EFF6FF}
+*{box-sizing:border-box}
+@page{size:A4;margin:0}
+html,body{margin:0;padding:0;background:#fff;color:var(--graphite);font-family:"Inter",Arial,sans-serif;font-size:9pt;line-height:1.4;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;padding:18mm 14mm 15mm;position:relative;page-break-after:always;overflow:hidden;counter-increment:pg;background:#fff}
+.page:last-child{page-break-after:auto}
+.ph{position:absolute;top:7mm;left:14mm;right:14mm;display:flex;justify-content:space-between;font-size:7.4pt;letter-spacing:.09em;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--line);padding-bottom:4px}
+.ph b{color:var(--blue-d);font-weight:600}
+.pf{position:absolute;bottom:7mm;left:14mm;right:14mm;display:flex;justify-content:space-between;font-size:7.4pt;color:var(--gray);border-top:1px solid var(--line);padding-top:4px}
+.pf .num::after{content:counter(pg);font-weight:600;color:var(--black)}
+.eyebrow{font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600;margin:0 0 4px}
+h1{font-family:"Inter Display","Inter",Arial,sans-serif;font-size:18pt;line-height:1.15;color:var(--black);margin:0 0 5px;font-weight:600;letter-spacing:-.01em}
+h2{font-size:10.4pt;color:var(--black);margin:9px 0 4px;font-weight:600}
+h3{font-size:9.2pt;color:var(--black);margin:6px 0 3px;font-weight:600}
+p{margin:0 0 5px}
+.lead{font-size:9.8pt;color:var(--graphite);margin-bottom:8px}
+ul,ol{margin:0 0 6px;padding-left:16px}
+li{margin-bottom:1px}
+small,.small{font-size:8.2pt;color:var(--gray)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid2>div,.grid3>div,.grid4>div{min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.card{border:1px solid var(--line);border-radius:6px;padding:7px 9px;background:#fff}
+.card h3{margin-top:0}
+.card.blue{background:var(--blue-xl);border-color:#BFDBFE}
+.card.dark{background:var(--black);color:#E5E7EB;border-color:var(--black)}
+.card.dark h3,.card.dark b{color:#fff}
+.kpi{border-left:3px solid var(--blue);padding:6px 10px;background:var(--soft);border-radius:0 6px 6px 0}
+.kpi .v{white-space:nowrap;font-family:"Inter Display","Inter",Arial,sans-serif;font-size:15pt;font-weight:600;color:var(--black);line-height:1.1}
+.kpi .l{font-size:7.8pt;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+table.tbl{width:100%;border-collapse:collapse;font-size:8.2pt;margin:3px 0 6px}
+.tbl th{background:var(--black);color:#fff;text-align:left;padding:5px 7px;font-weight:600;font-size:8pt;letter-spacing:.02em}
+.tbl td{padding:3.6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:nth-child(even) td{background:#FAFAFB}
+.tbl td.r,.tbl th.r{text-align:right}
+.tbl.nw td.r,.tbl.nw th.r{white-space:nowrap}
+.tbl.nw td,.tbl.nw th{font-size:7.2pt;padding:2.4px 4px}
+svg{display:block;max-width:100%}
+.tbl td.c,.tbl th.c{text-align:center}
+.tbl tr.tot td{font-weight:600;color:var(--black);background:var(--blue-xl);border-top:1.5px solid var(--blue)}
+.tbl.compact td,.tbl.compact th{padding:2.6px 5px;font-size:7.7pt}
+.callout{border-left:3px solid var(--blue);background:var(--blue-xl);padding:6px 10px;border-radius:0 6px 6px 0;margin:6px 0;font-size:8.6pt}
+.callout b{color:var(--blue-d)}
+.hyp{display:inline-block;font-size:7pt;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--soft);color:var(--graphite);border:1px solid var(--line);border-radius:3px;padding:1px 5px;vertical-align:middle;margin-left:4px}
+.tag{display:inline-block;font-size:7pt;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:3px;padding:1px 6px}
+.tag.b{background:var(--blue-l);color:var(--blue-d)}
+.tag.k{background:var(--black);color:#fff}
+.tag.g{background:var(--soft);color:var(--graphite)}
+.flow{display:flex;align-items:stretch;gap:0;margin:8px 0}
+.flow .step{flex:1;border:1px solid var(--line);border-radius:6px;padding:5px 5px;text-align:center;background:#fff;position:relative;font-size:7.6pt}
+.flow .step b{display:block;color:var(--black);font-size:8.4pt;margin-bottom:2px}
+.flow .step .n{display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--blue);color:#fff;font-size:8pt;font-weight:600;line-height:18px;margin-bottom:4px}
+.flow .arr{width:14px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:11pt}
+.vflow .vstep{border:1px solid var(--line);border-radius:6px;padding:5px 8px;margin-bottom:3px;background:#fff;font-size:8.2pt;display:flex;gap:8px;align-items:flex-start}
+.vflow .vstep .n{flex:none;width:18px;height:18px;border-radius:50%;background:var(--blue);color:#fff;font-size:8pt;font-weight:600;line-height:18px;text-align:center;margin-top:1px}
+.vflow .vstep.dec{border-color:var(--blue-d);background:var(--blue-xl)}
+.box{border:1.5px solid var(--black);border-radius:6px;padding:5px 7px;text-align:center;font-size:8pt;background:#fff}
+.box b{display:block;color:var(--black)}
+.box.blue{background:var(--blue);border-color:var(--blue);color:#fff}.box.blue b{color:#fff}
+.box.dark{background:var(--black);color:#fff}.box.dark b{color:#fff}
+.box.soft{background:var(--soft);border-color:var(--line)}
+.org{display:flex;flex-direction:column;align-items:center}
+.org .lvl{display:flex;gap:10px;justify-content:center;width:100%}
+.org .conn{width:2px;height:12px;background:var(--gray)}
+.org .hline{height:2px;background:var(--gray);margin:0 auto}
+.msg{border:1px solid var(--line);border-radius:8px;padding:5px 9px;background:#F9FAFB;font-size:8pt;margin-bottom:4px}
+.msg b{color:var(--black)}
+.msg .meta{font-size:7.4pt;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.check li{list-style:none;position:relative;padding-left:15px;margin-bottom:2px;font-size:8.3pt}
+.check li::before{content:"";position:absolute;left:0;top:3px;width:9px;height:9px;border:1.3px solid var(--graphite);border-radius:2px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:3px 8px;font-size:7.8pt}
+.form .f{border-bottom:1px solid var(--graphite);padding:1px 0 0;line-height:1.25}
+.form .f span{color:var(--gray);font-size:6.9pt;text-transform:uppercase;letter-spacing:.05em;display:block}
+.form .full{grid-column:1/-1}
+.lvl-a{color:var(--blue-d);font-weight:700}.lvl-b{color:var(--blue);font-weight:700}.lvl-c{color:var(--graphite);font-weight:700}
+.toc{list-style:none;padding:0;margin:0;font-size:9.4pt}
+.toc li{display:flex;justify-content:space-between;border-bottom:1px dotted var(--line);padding:3.5px 0}
+.toc li.part{border:none;margin-top:10px;font-weight:600;color:var(--blue-d);text-transform:uppercase;letter-spacing:.08em;font-size:8pt}
+.toc li span:last-child{color:var(--gray);font-variant-numeric:tabular-nums}
+.sec{margin-top:10px}
+.sep{height:1px;background:var(--line);margin:10px 0}
+.cover{background:var(--black);color:#fff;padding:0}
+.cover .band{position:absolute;left:0;top:0;bottom:0;width:9mm;background:var(--blue)}
+.cover .inner{position:absolute;left:28mm;right:20mm;top:40mm}
+.cover .brand{font-size:8.5pt;letter-spacing:.2em;text-transform:uppercase;color:#93C5FD;font-weight:600}
+.cover h1{color:#fff;font-size:38pt;line-height:1.05;margin:16px 0 10px;font-weight:600;letter-spacing:-.02em}
+.cover .sub{font-size:14pt;color:#CBD5E1;font-weight:400;max-width:140mm;line-height:1.35}
+.cover .meta{position:absolute;left:28mm;right:20mm;bottom:28mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;border-top:1px solid #334155;padding-top:14px}
+.cover .meta div{font-size:8.6pt;color:#94A3B8}
+.cover .meta b{display:block;color:#fff;font-size:10.5pt;margin-bottom:2px;font-weight:600}
+.cover .goal{position:absolute;left:28mm;top:118mm;display:flex;gap:26px}
+.cover .goal div{border-left:2px solid var(--blue-m);padding-left:12px}
+.cover .goal .v{font-size:24pt;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1}
+.cover .goal .l{font-size:8pt;color:#93C5FD;text-transform:uppercase;letter-spacing:.1em;margin-top:5px}
+.partpage{background:var(--black);color:#fff}
+.partpage .eyebrow{color:#93C5FD;margin-top:60mm}
+.partpage h1{color:#fff;font-size:30pt;margin-bottom:12px}
+.partpage p{color:#CBD5E1;font-size:11pt;max-width:140mm}
+.partpage ul{color:#E5E7EB;font-size:10pt;margin-top:12px}
+.partpage .pnum{position:absolute;right:16mm;top:20mm;font-size:70pt;font-weight:700;color:#1E293B;line-height:1}
+.note{font-size:8pt;color:var(--gray);border-top:1px dashed var(--line);padding-top:4px;margin-top:6px}
+.two{columns:2;column-gap:14px}
+.chart-title{font-size:8.4pt;font-weight:600;color:var(--black);margin:6px 0 2px}
+.chart-sub{font-size:7.8pt;color:var(--gray);margin-bottom:4px}
+.scale{display:flex;gap:4px;margin:4px 0}
+.scale div{flex:1;text-align:center;font-size:7.8pt;padding:4px 2px;border-radius:3px;background:var(--soft);color:var(--graphite)}
+.scale div.on{background:var(--blue);color:#fff;font-weight:600}
+.timeline{display:flex;gap:6px;margin:8px 0}
+.timeline .t{flex:1;border-top:3px solid var(--blue);padding-top:4px;font-size:7.8pt}
+.timeline .t b{display:block;color:var(--black);font-size:8.6pt}
+.timeline .t .min{font-size:7.4pt;color:var(--blue-d);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.wire{border:1.5px solid var(--black);border-radius:6px;overflow:hidden;font-size:7.5pt}
+.wire .bar{background:var(--black);color:#fff;padding:4px 8px;font-weight:600;display:flex;justify-content:space-between}
+.wire .body{padding:7px;display:grid;gap:5px}
+.wire .tile{border:1px solid var(--line);border-radius:4px;padding:4px 6px;background:#fff}
+.wire .tile b{display:block;color:var(--black);font-size:9pt}
+.wire .tile span{color:var(--gray);font-size:7.2pt}
+.wire .stub{background:repeating-linear-gradient(135deg,#F3F4F6,#F3F4F6 6px,#fff 6px,#fff 12px);border:1px solid var(--line);border-radius:4px;min-height:40px;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:7.4pt}
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<section class="page cover">
+  <div class="band"></div>
+  <div class="inner">
+    <div class="brand">Google Primeira Página · Projeto Empresarial</div>
+    <h1>Clube Google<br>Primeira Página</h1>
+    <div class="sub">Engenharia de um negócio de receita recorrente baseado em gestão contínua, mensurável e auditável da reputação digital de 100 empresas.</div>
+  </div>
+  <div class="goal">
+    <div><div class="v">100</div><div class="l">Empresas participantes</div></div>
+    <div><div class="v">R$ 1.000</div><div class="l">Assinatura mensal</div></div>
+    <div><div class="v">R$ 100 mil</div><div class="l">Receita recorrente mensal</div></div>
+  </div>
+  <div class="meta">
+    <div><b>Sérgio Machado</b>Idealizador e diretor estratégico</div>
+    <div><b>Google Primeira Página</b>Empresa responsável pela inteligência, tecnologia e auditoria</div>
+    <div><b>Novembro de 2026</b>Documento executivo e operacional · versão 1.0</div>
+  </div>
+</section>
+
+<!-- SUMÁRIO -->
+<section class="page">
+  <div class="ph"><span><b>Clube Google Primeira Página</b> · Projeto executivo</span><span>Sumário</span></div>
+  <p class="eyebrow">Sumário</p>
+  <h1>Como este documento está organizado</h1>
+  <p class="lead">Três partes. A primeira responde <em>por que</em> e <em>quanto</em>. A segunda responde <em>como funciona</em>. A terceira responde <em>o que fazer, quem faz e quando</em>.</p>
+  <div class="grid2">
+    <div>
+      <ul class="toc">
+        <li><span>Resumo executivo</span><span>3</span></li>
+        <li class="part"><span>Parte I — Visão executiva</span></li>
+        <li><span>O conceito e a grande ideia</span><span>5</span></li>
+        <li><span>Oportunidade, público-alvo e posicionamento</span><span>6</span></li>
+        <li><span>Proposta de valor: o que está nos R$ 1.000</span><span>7</span></li>
+        <li><span>Modelo de receita</span><span>8</span></li>
+        <li><span>Dimensionamento operacional: 100 avaliações por mês</span><span>9</span></li>
+        <li><span>Orçamento operacional e teste da hipótese de R$ 25 mil</span><span>10</span></li>
+        <li><span>Unit economics: MRR, ARR, CAC, LTV, churn e ponto de equilíbrio</span><span>11</span></li>
+        <li><span>Projeções de 12 meses em três cenários</span><span>12</span></li>
+        <li><span>Fluxo de caixa e capital necessário</span><span>13</span></li>
+        <li><span>Estratégia de crescimento</span><span>14</span></li>
+        <li class="part"><span>Parte II — Engenharia operacional</span></li>
+        <li><span>Engenharia da comunidade: 10 grupos de 10</span><span>16</span></li>
+        <li><span>Jornada da empresa: do cadastro à renovação</span><span>17</span></li>
+        <li><span>Rotina operacional diária do colaborador</span><span>18</span></li>
+        <li><span>Mensagens, scripts e fluxo de acompanhamento</span><span>19</span></li>
+        <li><span>Integridade, duplicidade e proteção de dados</span><span>20</span></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="toc">
+        <li><span>Sistema de auditoria</span><span>21</span></li>
+        <li><span>Índice de Execução 0–100, níveis e alertas</span><span>22</span></li>
+        <li><span>Tecnologia: comparação de ferramentas</span><span>23</span></li>
+        <li><span>Arquitetura tecnológica e custos</span><span>24</span></li>
+        <li><span>Painéis administrativo e individual</span><span>25</span></li>
+        <li><span>Estrutura da equipe e organograma</span><span>26</span></li>
+        <li><span>Funções, metas, indicadores e rotinas</span><span>27</span></li>
+        <li><span>Estratégia comercial</span><span>28</span></li>
+        <li><span>Abordagem, indicação, fechamento e onboarding comercial</span><span>29</span></li>
+        <li><span>Retenção e recorrência em 12 meses</span><span>30</span></li>
+        <li class="part"><span>Parte III — Plano de execução</span></li>
+        <li><span>Cronograma de 90 dias e critérios de avanço</span><span>32</span></li>
+        <li><span>Entregáveis, responsáveis, custos e indicadores por fase</span><span>33</span></li>
+        <li><span>Matriz de riscos e controles</span><span>34</span></li>
+        <li><span>Documentos operacionais (1 a 10)</span><span>35–38</span></li>
+        <li><span>Oportunidades de expansão e receita por cliente</span><span>39</span></li>
+        <li><span>Plano de ação dos primeiros sete dias</span><span>40</span></li>
+        <li><span>Hipóteses consolidadas e próximos passos</span><span>41</span></li>
+      </ul>
+      <div class="callout" style="margin-top:14px"><b>Convenção de leitura.</b> Todo número marcado com <span class="hyp">hipótese</span> é uma premissa de trabalho a ser validada no piloto, não um dado de mercado nem um resultado comprovado. Metas de avaliações são referências operacionais, nunca garantias.</div>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- RESUMO EXECUTIVO -->
+<section class="page">
+  <div class="ph"><span><b>Clube Google Primeira Página</b> · Projeto executivo</span><span>Resumo executivo</span></div>
+  <p class="eyebrow">Resumo executivo</p>
+  <h1>Uma operação de reputação digital vendida como assinatura</h1>
+  <p class="lead">O Clube Google Primeira Página reúne 100 empresas de serviços em um ecossistema estruturado de crescimento no Google. A Google Primeira Página centraliza a inteligência, o treinamento, a tecnologia e a auditoria. Cada empresa descentraliza a execução por meio de um colaborador designado, que dedica 15 a 30 minutos por dia a pedir avaliações a clientes reais, responder às avaliações recebidas e registrar o que fez.</p>
+  <div class="grid4" style="margin:10px 0 12px">
+    <div class="kpi"><div class="v">R$ 100 mil</div><div class="l">MRR na meta de 100 empresas</div></div>
+    <div class="kpi"><div class="v">R$ 1,2 mi</div><div class="l">ARR bruto potencial</div></div>
+    <div class="kpi"><div class="v">R$ 770</div><div class="l">Margem de contribuição por empresa/mês</div></div>
+    <div class="kpi"><div class="v">45</div><div class="l">Empresas para o ponto de equilíbrio com equipe completa</div></div>
+  </div>
+  <div class="grid2">
+    <div>
+      <h2>O que o conselho concluiu</h2>
+      <ol>
+        <li><b>A tese é viável, mas o produto não é "avaliações".</b> O que se vende por R$ 1.000 é um processo administrado: método, rotina, auditoria semanal, painel, relatório mensal e comunidade. Avaliações são um indicador de resultado, não a promessa.</li>
+        <li><b>A meta de 100 avaliações por mês só é realista para empresas com fluxo de 13 a 31 clientes por dia</b>, dependendo da taxa de conversão. Para as demais, a meta deve ser individualizada no onboarding. A rede inteira tem potencial de 10.000 avaliações mensais, apresentado aqui como teto de referência.</li>
+        <li><b>R$ 25 mil por mês cobre apenas a equipe núcleo.</b> O orçamento operacional completo a 100 empresas fica em torno de R$ 34 mil fixos, mais 23% de custos variáveis (impostos, taxas e inadimplência). Mesmo assim, a margem operacional projetada supera 40% no regime de 100 empresas.</li>
+        <li><b>A retenção vale mais do que a aquisição.</b> Com churn de 3% ao mês, cada empresa vale cerca de R$ 25 mil de contribuição ao longo da vida. Com 5%, cai para R$ 15 mil. A operação inteira foi desenhada para proteger esse número.</li>
+        <li><b>A integridade é o ativo que protege o negócio.</b> Nenhuma avaliação fictícia, recíproca ou de pessoas sem experiência real. Nenhuma seleção prévia de clientes satisfeitos. Dados de clientes ficam na empresa, nunca no Clube.</li>
+      </ol>
+    </div>
+    <div>
+      <h2>Como chegar a 100 empresas</h2>
+      <p>Não em 90 dias. O plano prevê um piloto de 10 empresas no primeiro mês, 25 a 30 ao fim do segundo e 40 a 50 ao fim do terceiro. No cenário intermediário, a meta de 100 é alcançada entre o 12º e o 13º mês; no otimista, no 9º; no conservador, não é atingida no primeiro ano.</p>
+      <table class="tbl compact">
+        <tr><th>Cenário</th><th class="r">Empresas no mês 12</th><th class="r">MRR no mês 12</th><th class="r">Caixa mínimo</th></tr>
+        <tr><td>Conservador</td><td class="r">43</td><td class="r">R$ 43.000</td><td class="r">–&nbsp;R$&nbsp;113&nbsp;mil</td></tr>
+        <tr><td>Intermediário</td><td class="r">95</td><td class="r">R$ 95.000</td><td class="r">–&nbsp;R$&nbsp;80&nbsp;mil</td></tr>
+        <tr><td>Otimista</td><td class="r">136</td><td class="r">R$ 136.000</td><td class="r">–&nbsp;R$&nbsp;52&nbsp;mil</td></tr>
+      </table>
+      <p class="small">Caixa mínimo é o maior déficit acumulado antes de o negócio se autofinanciar, incluindo R$ 15 mil de investimento inicial. Detalhes nas páginas 12 e 13.</p>
+      <h2>Princípio operacional</h2>
+      <div class="card dark">
+        <b>A inteligência é centralizada. A execução é descentralizada. A auditoria é contínua. A receita é recorrente.</b>
+        <p style="margin:6px 0 0;font-size:8.6pt;color:#CBD5E1">Cada frase corresponde a um subsistema deste documento: método e equipe (Parte II), rotina do colaborador (pág. 18), sistema de auditoria (págs. 21–22) e modelo de retenção (pág. 30).</p>
+      </div>
+      <h2>Decisão solicitada</h2>
+      <p>Aprovar a estruturação dos primeiros 15 dias (pág. 32), o orçamento de piloto de R$ 17 mil mensais e o plano de ação dos sete primeiros dias (pág. 40).</p>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- ABERTURA PARTE I -->
+<section class="page partpage">
+  <div class="pnum">I</div>
+  <p class="eyebrow">Parte I</p>
+  <h1>Visão executiva</h1>
+  <p>O conceito, a oportunidade, a proposta de valor, o modelo financeiro e a estratégia de crescimento. Esta parte foi escrita para ser lida por gestores, parceiros e investidores em menos de vinte minutos.</p>
+  <ul>
+    <li>Conceito e a grande ideia</li>
+    <li>Oportunidade, público-alvo e posicionamento</li>
+    <li>Proposta de valor e composição da assinatura</li>
+    <li>Modelo de receita e dimensionamento operacional</li>
+    <li>Orçamento, unit economics, projeções e caixa</li>
+    <li>Estratégia de crescimento</li>
+  </ul>
+</section>

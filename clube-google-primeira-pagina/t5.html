@@ -1,0 +1,215 @@
+
+<!-- P21 AUDITORIA -->
+<section class="page">
+  <div class="ph"><span><b>Parte II</b> · Engenharia operacional</span><span>Sistema de auditoria</span></div>
+  <p class="eyebrow">5 · Sistema de auditoria</p>
+  <h1>Sistema de auditoria: acompanhar 100 empresas uma a uma</h1>
+  <p class="lead">A auditoria é o componente que transforma uma comunidade em um serviço. Ela responde, para cada empresa e toda semana, a três perguntas: o colaborador executou? o resultado apareceu? há algo pendente? E separa, sempre, o que foi informado por alguém do que foi comprovado por dados.</p>
+  <div class="grid2">
+    <div>
+      <h2>Registro individual por empresa</h2>
+      <table class="tbl compact">
+        <tr><th>Campo</th><th>Granularidade</th><th>Natureza</th></tr>
+        <tr><td>Empresa, grupo, segmento, meta individual</td><td>Cadastro</td><td><span class="tag k">Cadastro</span></td></tr>
+        <tr><td>Colaborador responsável e substituto</td><td>Cadastro</td><td><span class="tag k">Cadastro</span></td></tr>
+        <tr><td>Data da atividade e horário do registro</td><td>Diária</td><td><span class="tag b">Comprovado</span></td></tr>
+        <tr><td>Solicitações realizadas e canal</td><td>Diária</td><td><span class="tag g">Informado</span></td></tr>
+        <tr><td>Avaliações recebidas (contagem no perfil)</td><td>Diária</td><td><span class="tag b">Comprovado</span></td></tr>
+        <tr><td>Evolução da nota média</td><td>Diária / semanal</td><td><span class="tag b">Comprovado</span></td></tr>
+        <tr><td>Avaliações respondidas e tempo de resposta</td><td>Diária</td><td><span class="tag b">Comprovado</span></td></tr>
+        <tr><td>Participação operacional (dias com registro ÷ dias úteis)</td><td>Semanal / mensal</td><td><span class="tag b">Comprovado</span></td></tr>
+        <tr><td>Pendências (treinamento, resposta atrasada, dado faltante)</td><td>Semanal</td><td><span class="tag b">Comprovado</span></td></tr>
+        <tr><td>Reclamações e oportunidades anotadas</td><td>Diária</td><td><span class="tag g">Informado</span></td></tr>
+        <tr><td>Histórico de desempenho (índice, nível, 12 meses)</td><td>Mensal</td><td><span class="tag b">Comprovado</span></td></tr>
+      </table>
+      <p class="small"><b>Comprovado</b>: coletado pelo sistema (horário do registro) ou lido do Perfil da Empresa (contagem de avaliações, nota, respostas), por integração ou por conferência visual do auditor. <b>Informado</b>: declarado pelo colaborador. Indicadores informados nunca aparecem sem essa marcação no relatório ao cliente.</p>
+    </div>
+    <div>
+      <h2>Rotina semanal da auditoria</h2>
+      <div class="vflow">
+        <div class="vstep"><span class="n">1</span><div><b>Segunda, 9h · Consolidar.</b> O sistema fecha a semana anterior: registros, avaliações, respostas e nota por empresa. O auditor verifica se a coleta de dados do perfil rodou para 100% das empresas.</div></div>
+        <div class="vstep"><span class="n">2</span><div><b>Segunda a quarta · Conferir.</b> Para cada empresa (~15 min): coerência entre solicitações e avaliações (conversão implícita entre 10% e 60%; fora disso, investigar), respostas pendentes, picos atípicos, registros retroativos.</div></div>
+        <div class="vstep"><span class="n">3</span><div><b>Quarta · Calcular.</b> Índice de Execução e nível (pág. 22) publicados no painel. Alertas abertos viram pendências com responsável e prazo.</div></div>
+        <div class="vstep"><span class="n">4</span><div><b>Quinta · Tratar.</b> Reunião de 30 min auditoria + relacionamento + gestor: empresas em nível Atenção, inativas e com queda recebem ação definida.</div></div>
+        <div class="vstep"><span class="n">5</span><div><b>Sexta · Devolver.</b> Resumo semanal enviado a cada colaborador e empresário: 3 números, 1 elogio ou 1 orientação, 1 pendência (se houver).</div></div>
+      </div>
+      <h2>Teste de coerência</h2>
+      <table class="tbl compact">
+        <tr><th>Sinal</th><th>Interpretação provável</th><th>Ação</th></tr>
+        <tr><td>Muitas solicitações, poucas avaliações (&lt; 10%)</td><td>Mensagem ruim, link errado, canal inadequado ou registro inflado</td><td>Revisar mensagem e link; pedir evidência de tela de 3 envios</td></tr>
+        <tr><td>Poucas solicitações, muitas avaliações (&gt; 60%)</td><td>Sub-registro ou avaliações fora do processo</td><td>Verificar origem; reforçar registro diário</td></tr>
+        <tr><td>Avaliações sem registro de atividade</td><td>Colaborador executa e não registra</td><td>Treinar registro; não contar para participação</td></tr>
+        <tr><td>Pico &gt; 3× a média</td><td>Campanha presencial legítima ou prática irregular</td><td>Verificação obrigatória em 48 h</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P22 ÍNDICE DE EXECUÇÃO -->
+<section class="page">
+  <div class="ph"><span><b>Parte II</b> · Engenharia operacional</span><span>Índice de Execução</span></div>
+  <p class="eyebrow">5 · Índice de Execução</p>
+  <h1>Índice de Execução de 0 a 100, três níveis e alertas automáticos</h1>
+  <p class="lead">Um único número por empresa, recalculado toda semana, composto por cinco dimensões com pesos fixos. Mede execução e qualidade do processo, não apenas quantidade de avaliações, para que empresas de fluxo pequeno possam ser bem avaliadas se executarem bem.</p>
+  <p class="chart-title">Composição do índice (pontos)</p>
+  {{CHART_INDICE}}
+  <table class="tbl compact">
+    <tr><th>Dimensão</th><th class="r">Peso</th><th>Como é calculada</th><th>Natureza</th></tr>
+    <tr><td><b>Participação operacional</b></td><td class="r">25</td><td>Dias úteis com registro no dia ÷ dias úteis do período × 25. Registros retroativos não contam.</td><td><span class="tag b">Comprovado</span></td></tr>
+    <tr><td><b>Solicitações vs. meta</b></td><td class="r">20</td><td>Solicitações registradas ÷ solicitações previstas para a meta individual × 20, limitado a 20.</td><td><span class="tag g">Informado</span></td></tr>
+    <tr><td><b>Avaliações recebidas vs. meta individual</b></td><td class="r">25</td><td>Avaliações novas no perfil ÷ meta individual × 25, limitado a 25.</td><td><span class="tag b">Comprovado</span></td></tr>
+    <tr><td><b>Resposta às avaliações</b></td><td class="r">15</td><td>Respondidas em até 48 h ÷ recebidas × 15. Sem avaliações no período: 15 pontos.</td><td><span class="tag b">Comprovado</span></td></tr>
+    <tr><td><b>Qualidade e conformidade</b></td><td class="r">15</td><td>Parte de 15; desconta 5 por pendência de treinamento, 5 por inconsistência não explicada na auditoria, 15 por violação de integridade.</td><td><span class="tag b">Auditoria</span></td></tr>
+  </table>
+  <div class="grid3">
+    <div class="card" style="border-top:3px solid var(--blue-d)"><h3><span class="lvl-a">Nível A · Referência</span> · 80 a 100</h3><p>Rotina consolidada. Recebe destaque mensal, selo digital e é convidada a apresentar sua prática no grupo. Candidata natural a produtos premium.</p></div>
+    <div class="card" style="border-top:3px solid var(--blue)"><h3><span class="lvl-b">Nível B · Em desenvolvimento</span> · 60 a 79</h3><p>Executa, com falhas de regularidade ou de resposta. Recebe orientação específica no resumo semanal e reciclagem direcionada no mês.</p></div>
+    <div class="card" style="border-top:3px solid var(--graphite)"><h3><span class="lvl-c">Nível C · Atenção</span> · 0 a 59</h3><p>Risco de cancelamento. Entra no procedimento para empresas inativas (doc. 9): contato do gestor em 48 h, plano de reativação de 2 semanas, revisão de meta ou de colaborador.</p></div>
+  </div>
+  <div class="grid2" style="margin-top:8px">
+    <div>
+      <h2>Alertas automáticos</h2>
+      <table class="tbl compact">
+        <tr><th>Gatilho</th><th>Alerta</th><th>Destinatário e prazo</th></tr>
+        <tr><td>2 dias úteis consecutivos sem registro</td><td>Amarelo · lembrete automático</td><td>Colaborador, imediato</td></tr>
+        <tr><td>5 dias úteis sem registro</td><td>Vermelho · inatividade</td><td>Empresário + relacionamento, contato em 24 h</td></tr>
+        <tr><td>Avaliação ≤ 3 estrelas sem resposta em 48 h</td><td>Resposta pendente</td><td>Colaborador e gestor da empresa</td></tr>
+        <tr><td>Avaliações do mês &lt; 70% da média dos 3 meses anteriores</td><td>Queda de resultado</td><td>Gestor operacional, análise na quinta</td></tr>
+        <tr><td>Nota média cai 0,1 ou mais em 30 dias</td><td>Queda de nota</td><td>Relacionamento, diagnóstico em 1 semana</td></tr>
+        <tr><td>Índice abaixo de 60 por 2 semanas</td><td>Nível C</td><td>Procedimento doc. 9</td></tr>
+        <tr><td>Pagamento em atraso &gt; 5 dias</td><td>Financeiro</td><td>Régua de cobrança</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>Exemplo de cálculo</h2>
+      <div class="card blue">
+        <p><b>Clínica X, março.</b> Meta individual 67 avaliações. Registrou em 18 de 20 dias úteis → 22,5 pts. Enviou 240 de 286 solicitações previstas → 16,8 pts. Recebeu 58 avaliações → 21,6 pts. Respondeu 55 de 58 em 48 h → 14,2 pts. Uma pendência de treinamento → 10 pts.</p>
+        <p style="margin:0"><b>Índice = 85 → Nível A.</b> Mesmo sem bater a meta de avaliações, a execução regular e a resposta rápida sustentam o nível.</p>
+      </div>
+      <p class="small">Todos os pesos são parâmetros do sistema e podem ser recalibrados após o piloto, com comunicação prévia aos membros. A recalibração é decisão do diretor estratégico, nunca da auditoria.</p>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P23 TECNOLOGIA: COMPARAÇÃO -->
+<section class="page">
+  <div class="ph"><span><b>Parte II</b> · Engenharia operacional</span><span>Tecnologia</span></div>
+  <p class="eyebrow">6 · Tecnologia e automação</p>
+  <h1>Ferramentas: o que comparar, o que escolher e por quê</h1>
+  <p class="lead">Critérios de escolha, em ordem: (1) tempo até funcionar, (2) custo por empresa ativa, (3) facilidade de trocar depois, (4) conformidade com dados. Preços em moeda estrangeira foram convertidos em faixas aproximadas e devem ser conferidos no momento da contratação <span class="hyp">hipótese</span>.</p>
+  <table class="tbl compact">
+    <tr><th style="width:15%">Camada</th><th style="width:19%">Opções comparadas</th><th>Avaliação do conselho</th><th style="width:15%">Decisão inicial</th><th style="width:11%">Custo/mês</th></tr>
+    <tr><td><b>Canal com o cliente</b></td><td>WhatsApp Business (app) · WhatsApp Cloud API</td><td>O app gratuito, no número da empresa, resolve o piloto: o colaborador envia a mensagem-modelo salva como resposta rápida. A API oficial permite automação, mas cobra por conversa, exige integração por empresa e responsabilidade sobre dados de clientes; não compensa no início.</td><td>App no número da empresa</td><td>R$ 0</td></tr>
+    <tr><td><b>Registro diário</b></td><td>Google Forms · Airtable Forms · app próprio</td><td>Formulário com 6 campos, link por empresa e identificação por código. Airtable permite formulário + base + automações simples no mesmo lugar; Forms + Sheets é gratuito e suficiente para 10 empresas.</td><td>Airtable (a partir de 15 empresas)</td><td>R$ 150–300</td></tr>
+    <tr><td><b>Base de dados</b></td><td>Google Sheets · Airtable</td><td>Sheets funciona até ~30 empresas e começa a quebrar com histórico de 12 meses e múltiplos editores. Airtable tem relacionamentos, histórico e permissões por empresa.</td><td>Sheets no piloto → Airtable</td><td>incluído</td></tr>
+    <tr><td><b>Automação</b></td><td>Make · n8n</td><td>Make é mais rápido de montar e o volume (alguns milhares de operações/mês) cabe nos planos iniciais. n8n é mais barato em escala e permite hospedagem própria, com custo de manutenção. Começar com Make; reavaliar n8n acima de 100 empresas.</td><td>Make</td><td>R$ 60–120</td></tr>
+    <tr><td><b>Painéis</b></td><td>Looker Studio · Metabase · app próprio</td><td>Looker Studio é gratuito, conecta a Sheets e Airtable (via conector) e aceita filtro por empresa com link individual. Suficiente para 12 meses. App próprio só quando o painel virar diferencial de produto.</td><td>Looker Studio</td><td>R$ 0</td></tr>
+    <tr><td><b>CRM comercial</b></td><td>HubSpot (gratuito) · Pipedrive · RD Station</td><td>Funil simples de 6 etapas (pág. 29). HubSpot gratuito cobre; Pipedrive se a equipe comercial crescer.</td><td>HubSpot gratuito</td><td>R$ 0–150</td></tr>
+    <tr><td><b>Pagamentos recorrentes</b></td><td>Asaas · Vindi · Stripe · Pagar.me</td><td>Necessário: assinatura recorrente, Pix e cartão, régua de cobrança, nota fiscal integrada, webhook para ativar/suspender acesso. Asaas e Vindi são as opções nacionais com NF e boleto; Stripe facilita integração, mas sem boleto/NF nativos.</td><td>Asaas</td><td>taxa ~1–3% por transação</td></tr>
+    <tr><td><b>Dados do perfil</b></td><td>Conferência manual · Google Business Profile API · ferramentas de terceiros</td><td>A API oficial permite ler avaliações e respondê-las, mas exige aprovação de acesso para o projeto e autorização de cada empresa (OAuth). Até a aprovação, a auditoria confere a contagem e a nota manualmente (2 min/empresa) e o colaborador registra. Ferramentas de terceiros resolvem rápido, mas a um custo por local que não cabe na margem.</td><td>Manual → API própria (meses 3–6)</td><td>R$ 0 → dev. próprio</td></tr>
+    <tr><td><b>Comunicação interna</b></td><td>Grupos de WhatsApp · Telegram · comunidade em plataforma</td><td>Grupos de WhatsApp por célula (10 empresas) e 1 canal de avisos. Sem plataforma de comunidade no primeiro ano.</td><td>WhatsApp</td><td>R$ 0</td></tr>
+  </table>
+  <div class="grid2">
+    <div class="callout"><b>Regra de desenvolvimento próprio.</b> Só se desenvolve o que (a) a ferramenta pronta não faz, (b) toca diretamente o valor percebido pelo cliente ou (c) economiza mais do que custa em 12 meses. Pelos três critérios, os candidatos são: integração com a Google Business Profile API (coleta automática de avaliações, nota e respostas) e, mais tarde, o painel individual com identidade própria.</div>
+    <div class="callout"><b>Limitações técnicas conhecidas.</b> A contagem de avaliações pode sofrer remoções pela plataforma (avaliações filtradas), o que gera diferença entre convites e resultado sem culpa do colaborador. Looker Studio tem limites de atualização e de linhas em fontes gratuitas. Make interrompe cenários ao estourar a cota; monitorar consumo.</div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P24 ARQUITETURA -->
+<section class="page">
+  <div class="ph"><span><b>Parte II</b> · Engenharia operacional</span><span>Arquitetura tecnológica</span></div>
+  <p class="eyebrow">6 · Arquitetura e custos</p>
+  <h1>Arquitetura tecnológica e evolução em três fases</h1>
+  <p class="lead">A arquitetura segue o fluxo Cadastro → Pagamento → Onboarding → Treinamento → Execução → Monitoramento → Auditoria → Relatório → Renovação. Cada caixa abaixo é uma ferramenta; cada seta, uma automação ou um procedimento.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0">
+    <div class="box"><b>Site / formulário de cadastro</b>Captura e qualificação</div>
+    <div class="box"><b>CRM comercial</b>Funil, proposta, contrato</div>
+    <div class="box blue"><b>Plataforma de pagamentos</b>Assinatura, Pix/cartão, NF, régua</div>
+    <div class="box"><b>Onboarding</b>Checklist, meta individual, acessos</div>
+  </div>
+  <div style="text-align:center;color:var(--blue);font-size:11pt;line-height:1">↓ webhook "pagamento confirmado" cria a empresa na base e dispara o onboarding ↓</div>
+  <div style="display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:6px;margin:6px 0;align-items:stretch">
+    <div class="box soft"><b>Formulário diário</b>Registro do colaborador (6 campos, 30 s)<br><span class="small">↓ grava</span></div>
+    <div class="box dark"><b>Base de dados (Airtable)</b>Empresas · Colaboradores · Registros diários · Avaliações · Índice · Alertas · Pendências · Histórico</div>
+    <div class="box soft"><b>Perfil da Empresa no Google</b>Contagem, nota, respostas<br><span class="small">↑ leitura manual → API (fase 2)</span></div>
+  </div>
+  <div style="text-align:center;color:var(--blue);font-size:11pt;line-height:1">↓ automações (Make): consolidação diária · cálculo do índice · alertas · lembretes ↓</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0">
+    <div class="box"><b>Painel administrativo</b>Looker Studio · todas as empresas</div>
+    <div class="box"><b>Painel individual</b>Looker Studio · link por empresa</div>
+    <div class="box"><b>Alertas e resumos</b>WhatsApp / e-mail via automação</div>
+    <div class="box"><b>Relatório mensal</b>Modelo preenchido pela base (PDF)</div>
+  </div>
+  <div class="grid3" style="margin-top:8px">
+    <div class="card"><h3>Fase 1 · Piloto (dias 1–30)</h3><ul><li>Google Forms + Sheets</li><li>Looker Studio com 1 relatório filtrável</li><li>Asaas para cobrança</li><li>HubSpot gratuito</li><li>Conferência manual do perfil</li></ul><p><b>Custo:</b> ~R$ 200/mês + setup de R$ 3 mil (suporte terceirizado)</p></div>
+    <div class="card"><h3>Fase 2 · Automação (dias 31–90)</h3><ul><li>Migração para Airtable</li><li>Make: consolidação, índice, alertas, lembretes</li><li>Webhook pagamento → base</li><li>Painel individual com link por empresa</li><li>Pedido de acesso à Business Profile API</li></ul><p><b>Custo:</b> ~R$ 500/mês + R$ 6–10 mil de implantação</p></div>
+    <div class="card"><h3>Fase 3 · Produto (meses 4–12)</h3><ul><li>Integração com a API: coleta automática de avaliações e respostas</li><li>Relatório mensal gerado automaticamente</li><li>Painel individual com identidade própria (web app)</li><li>Avaliação de n8n para reduzir custo em escala</li></ul><p><b>Custo:</b> ~R$ 1.000–1.500/mês + R$ 25–45 mil de desenvolvimento <span class="hyp">hipótese</span></p></div>
+  </div>
+  <div class="grid2" style="margin-top:8px">
+    <div>
+      <h2>Segurança e acessos</h2>
+      <ul><li>Um login por colaborador; empresário com acesso de leitura ao painel individual.</li><li>Dados de empresas diferentes separados por filtro obrigatório; comparações sempre agregadas e anônimas.</li><li>Backup semanal exportado da base; retenção de 24 meses.</li><li>Acesso administrativo apenas para gestor, auditoria e suporte tecnológico, com autenticação em dois fatores.</li></ul>
+    </div>
+    <div>
+      <h2>Critérios para sair de cada fase</h2>
+      <ul><li><b>Fase 1 → 2:</b> 15 empresas ativas ou 3 horas/semana de trabalho manual de consolidação.</li><li><b>Fase 2 → 3:</b> 40 empresas ativas e acesso à API aprovado; ou auditoria consumindo mais de 20 horas/semana.</li><li>Nenhuma troca de ferramenta sem exportação completa do histórico e período de 2 semanas em paralelo.</li></ul>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P25 PAINÉIS -->
+<section class="page">
+  <div class="ph"><span><b>Parte II</b> · Engenharia operacional</span><span>Painéis</span></div>
+  <p class="eyebrow">6 · Painéis administrativo e individual</p>
+  <h1>Dois painéis: a visão da central e a visão de cada empresa</h1>
+  <p class="lead">O painel administrativo responde "onde devo agir hoje?". O painel individual responde "o que meu esforço está produzindo?". Ambos são alimentados pela mesma base e atualizados diariamente.</p>
+  <div class="grid2">
+    <div>
+      <div class="wire">
+        <div class="bar"><span>Painel administrativo · Clube</span><span>Atualizado: hoje 07:00</span></div>
+        <div class="body" style="grid-template-columns:repeat(4,1fr)">
+          <div class="tile"><b>95</b><span>Empresas ativas</span></div>
+          <div class="tile"><b>R$ 95.000</b><span>MRR · 4 inadimplentes</span></div>
+          <div class="tile"><b>74</b><span>Índice médio da rede</span></div>
+          <div class="tile"><b>5.830</b><span>Avaliações no mês</span></div>
+          <div class="tile" style="grid-column:1/3"><b>Níveis</b><span>A 38 · B 44 · C 13 · ▮▮▮▮▮▮▮▮▯▯▯</span></div>
+          <div class="tile" style="grid-column:3/5"><b>Alertas abertos: 11</b><span>6 inatividade · 3 resposta pendente · 2 queda de nota</span></div>
+          <div class="stub" style="grid-column:1/3">Avaliações por dia · últimos 30 dias (linha)</div>
+          <div class="stub" style="grid-column:3/5">Índice médio por grupo G1–G10 (barras)</div>
+          <div class="tile" style="grid-column:1/5"><b>Lista de ação</b><span>Empresa · Grupo · Índice · Alerta · Responsável · Prazo — ordenada por gravidade</span></div>
+          <div class="stub" style="grid-column:1/3">Funil comercial (CRM)</div>
+          <div class="stub" style="grid-column:3/5">Churn, inadimplência e caixa projetado 90 dias</div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:4px">Visões por filtro: grupo, segmento, nível, responsável na central. Exportável para a reunião de quinta.</p>
+    </div>
+    <div>
+      <div class="wire">
+        <div class="bar"><span>Painel individual · Clínica X (G4)</span><span>Nível A · Índice 85</span></div>
+        <div class="body" style="grid-template-columns:repeat(3,1fr)">
+          <div class="tile"><b>58 / 67</b><span>Avaliações no mês vs. meta</span></div>
+          <div class="tile"><b>4,8 ★</b><span>Nota média · +0,1 em 90 dias</span></div>
+          <div class="tile"><b>18 / 20</b><span>Dias com rotina executada</span></div>
+          <div class="stub" style="grid-column:1/4">Avaliações acumuladas · 12 meses (área) com linha da meta</div>
+          <div class="tile"><b>240</b><span>Solicitações registradas <span class="tag g">Informado</span></span></div>
+          <div class="tile"><b>95%</b><span>Avaliações respondidas em 48 h</span></div>
+          <div class="tile"><b>Top 30%</b><span>Posição entre pares do segmento (anônimo)</span></div>
+          <div class="tile" style="grid-column:1/4"><b>Pendências</b><span>1 · Reciclagem de março não concluída (prazo 15/03)</span></div>
+          <div class="tile" style="grid-column:1/4"><b>Recomendação da semana</b><span>Conversão de 24% está abaixo da média do grupo (31%): testar envio do convite até 2 h após o atendimento.</span></div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:4px">Acesso por link individual com login. O empresário vê a mesma tela do colaborador, mais o histórico de relatórios.</p>
+    </div>
+  </div>
+  <h2>Indicadores exibidos e sua origem</h2>
+  <table class="tbl compact">
+    <tr><th>Painel</th><th>Indicadores principais</th><th>Fonte</th><th>Atualização</th></tr>
+    <tr><td>Administrativo</td><td>Empresas ativas, MRR, inadimplência, churn, índice médio, distribuição por nível, alertas, avaliações da rede, funil comercial, caixa projetado</td><td>Base + pagamentos + CRM</td><td>Diária (07:00)</td></tr>
+    <tr><td>Individual</td><td>Avaliações vs. meta, nota, dias executados, solicitações, taxa de resposta, posição entre pares, pendências, recomendação</td><td>Base + perfil</td><td>Diária (07:00)</td></tr>
+  </table>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>

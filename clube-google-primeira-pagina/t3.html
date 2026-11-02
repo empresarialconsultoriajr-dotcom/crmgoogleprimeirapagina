@@ -1,0 +1,187 @@
+
+<!-- P11 UNIT ECONOMICS -->
+<section class="page">
+  <div class="ph"><span><b>Parte I</b> · Visão executiva</span><span>Unit economics</span></div>
+  <p class="eyebrow">8 · Modelo financeiro</p>
+  <h1>MRR, ARR, CAC, LTV, churn, margem e ponto de equilíbrio</h1>
+  <p class="lead">Os indicadores abaixo são calculados a partir das hipóteses declaradas e devem ser recalculados mensalmente com dados reais. As definições são fixas para que a equipe meça sempre da mesma forma.</p>
+  <div class="grid2">
+    <div>
+      <table class="tbl compact">
+        <tr><th>Indicador</th><th>Definição operacional</th><th class="r">Valor-base</th></tr>
+        <tr><td><b>MRR</b></td><td>Empresas ativas adimplentes × R$ 1.000 no último dia do mês</td><td class="r">R$ 100.000 (meta)</td></tr>
+        <tr><td><b>ARR</b></td><td>MRR × 12</td><td class="r">R$ 1,2 mi</td></tr>
+        <tr><td><b>Churn mensal</b></td><td>Cancelamentos no mês ÷ empresas ativas no início do mês</td><td class="r">3% <span class="hyp">hip.</span></td></tr>
+        <tr><td><b>Vida média do cliente</b></td><td>1 ÷ churn</td><td class="r">33 meses</td></tr>
+        <tr><td><b>Margem de contribuição</b></td><td>R$ 1.000 – inadimplência – taxas – impostos</td><td class="r">R$ 770 / mês</td></tr>
+        <tr><td><b>LTV bruto</b></td><td>R$ 1.000 × vida média</td><td class="r">R$ 33.300</td></tr>
+        <tr><td><b>LTV de contribuição</b></td><td>R$ 770 × vida média</td><td class="r">R$ 25.700</td></tr>
+        <tr><td><b>CAC</b></td><td>Custo total de marketing e vendas do mês ÷ empresas conquistadas</td><td class="r">R$ 800 <span class="hyp">hip.</span></td></tr>
+        <tr><td><b>LTV ÷ CAC</b></td><td>LTV de contribuição ÷ CAC</td><td class="r">32×</td></tr>
+        <tr><td><b>Payback do CAC</b></td><td>CAC ÷ margem de contribuição mensal</td><td class="r">1,04 mês</td></tr>
+        <tr><td><b>Ponto de equilíbrio</b></td><td>Custo fixo ÷ margem de contribuição por empresa</td><td class="r">ver tabela</td></tr>
+      </table>
+      <h2>Ponto de equilíbrio por degrau de custo</h2>
+      <table class="tbl compact">
+        <tr><th>Estrutura</th><th class="r">Custo fixo + CAC</th><th class="r">Empresas para equilibrar</th></tr>
+        <tr><td>Piloto (diretor + gestor + TI)</td><td class="r">R$ 20.000</td><td class="r">26</td></tr>
+        <tr><td>Crescimento (+ relacionamento)</td><td class="r">R$ 30.000</td><td class="r">39</td></tr>
+        <tr><td>Regime (+ auditoria + reserva)</td><td class="r">R$ 39.000</td><td class="r">51</td></tr>
+      </table>
+      <p class="small">Incluindo o gasto com aquisição. Sem CAC, o regime equilibra com 45 empresas. Leitura prática: o piloto só se paga com 26 empresas, por isso os primeiros meses são deficitários por desenho.</p>
+    </div>
+    <div>
+      <p class="chart-title">Ponto de equilíbrio: contribuição acumulada vs. custo fixo em degraus</p>
+      <p class="chart-sub">Eixo horizontal: empresas ativas. R$ mil por mês. Custo inclui aquisição.</p>
+      {{CHART_BE}}
+      <h2>Sensibilidade ao churn</h2>
+      <table class="tbl compact">
+        <tr><th>Churn mensal</th><th class="r">Vida média</th><th class="r">LTV de contribuição</th><th class="r">Novas empresas/mês só para repor 100</th></tr>
+        <tr><td>2% (otimista)</td><td class="r">50 meses</td><td class="r">R$ 38.500</td><td class="r">2</td></tr>
+        <tr><td>3% (intermediário)</td><td class="r">33 meses</td><td class="r">R$ 25.700</td><td class="r">3</td></tr>
+        <tr><td>5% (conservador)</td><td class="r">20 meses</td><td class="r">R$ 15.400</td><td class="r">5</td></tr>
+        <tr><td>8% (alerta)</td><td class="r">12,5 meses</td><td class="r">R$ 9.600</td><td class="r">8</td></tr>
+      </table>
+      <div class="callout"><b>Por que o CAC parece baixo.</b> A hipótese de R$ 800 pressupõe que a maior parte das primeiras 100 empresas venha da base atual da Google Primeira Página e de indicações. Se a aquisição depender de mídia paga, o CAC pode chegar a R$ 1.500 a R$ 2.500; mesmo nesse caso, o payback fica abaixo de 4 meses. O indicador a vigiar não é o CAC, é o churn.</div>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P12 PROJEÇÕES -->
+<section class="page">
+  <div class="ph"><span><b>Parte I</b> · Visão executiva</span><span>Projeções 12 meses</span></div>
+  <p class="eyebrow">8 · Modelo financeiro</p>
+  <h1>Projeções de 12 meses em três cenários</h1>
+  <p class="lead">Cada cenário combina um ritmo de novas empresas por mês e uma taxa de churn. Os custos fixos sobem em degraus conforme o número de empresas ativas (R$ 17 mil, 25 mil e 34 mil), reproduzindo a regra de contratação da pág. 27. Investimento inicial de R$ 15 mil no mês 1 <span class="hyp">hipótese</span>.</p>
+  <table class="tbl compact">
+    <tr><th>Premissa</th><th>Conservador</th><th>Intermediário</th><th>Otimista</th></tr>
+    <tr><td>Novas empresas por mês</td><td>5, 5, depois 4 a 5</td><td>5, 5, 8, 8, depois 10 a 12</td><td>10, 8, 10, 12, depois 12 a 14</td></tr>
+    <tr><td>Churn mensal</td><td>5%</td><td>3%</td><td>2%</td></tr>
+    <tr><td>Gasto mensal com aquisição</td><td>R$ 3.000</td><td>R$ 3.000 → R$ 5.000</td><td>R$ 3.000 → R$ 5.000</td></tr>
+  </table>
+  <div class="grid2">
+    <div>
+      <p class="chart-title">Empresas ativas ao fim de cada mês</p>
+      {{CHART_EMPRESAS}}
+    </div>
+    <div>
+      <p class="chart-title">MRR ao fim de cada mês (R$ mil)</p>
+      {{CHART_MRR}}
+    </div>
+  </div>
+  <table class="tbl compact" style="margin-top:6px">
+    <tr><th>Mês</th><th class="c">1</th><th class="c">2</th><th class="c">3</th><th class="c">4</th><th class="c">5</th><th class="c">6</th><th class="c">7</th><th class="c">8</th><th class="c">9</th><th class="c">10</th><th class="c">11</th><th class="c">12</th></tr>
+    {{ROWS_EMPRESAS}}
+  </table>
+  <table class="tbl compact">
+    <tr><th>Resumo de 12 meses</th><th class="r">Conservador</th><th class="r">Intermediário</th><th class="r">Otimista</th></tr>
+    {{ROWS_RESUMO}}
+  </table>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P13 FLUXO DE CAIXA -->
+<section class="page">
+  <div class="ph"><span><b>Parte I</b> · Visão executiva</span><span>Fluxo de caixa</span></div>
+  <p class="eyebrow">8 · Modelo financeiro</p>
+  <h1>Fluxo de caixa e capital necessário</h1>
+  <p class="lead">O negócio é deficitário por desenho nos primeiros meses: a equipe é contratada antes de a base pagar por ela. O número que importa para o idealizador é o caixa mínimo acumulado, isto é, o capital que precisa estar disponível para atravessar o vale.</p>
+  <div class="grid2">
+    <div>
+      <p class="chart-title">Caixa acumulado por cenário (R$ mil)</p>
+      <p class="chart-sub">Inclui investimento inicial de R$ 15 mil. Linha cinza = zero.</p>
+      {{CHART_CAIXA}}
+      <div class="grid3" style="margin-top:8px">
+        <div class="kpi"><div class="v" style="font-size:12.5pt">–&nbsp;R$&nbsp;113&nbsp;mil</div><div class="l">Caixa mínimo · conservador (mês 12, em queda)</div></div>
+        <div class="kpi"><div class="v" style="font-size:12.5pt">–&nbsp;R$&nbsp;80&nbsp;mil</div><div class="l">Caixa mínimo · intermediário (mês 6)</div></div>
+        <div class="kpi"><div class="v" style="font-size:12.5pt">–&nbsp;R$&nbsp;52&nbsp;mil</div><div class="l">Caixa mínimo · otimista (mês 5)</div></div>
+      </div>
+    </div>
+    <div>
+      <h2>Fluxo de caixa mensal · cenário intermediário</h2>
+      <table class="tbl compact nw">
+        <tr><th>Mês</th><th class="r">Emp.</th><th class="r">Recebido</th><th class="r">Taxas+imp.</th><th class="r">Fixo+CAC</th><th class="r">Resultado</th><th class="r">Caixa acum.</th></tr>
+        {{ROWS_CAIXA}}
+      </table>
+      <p class="small">Recebido = MRR – 5% de inadimplência. Taxas 3% sobre o recebido; impostos 15% sobre o faturado. Valores em R$.</p>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Três formas de financiar o vale</h3>
+      <ol>
+        <li><b>Caixa próprio da Google Primeira Página</b>: reservar R$ 80 a 90 mil antes do lançamento (cenário intermediário com margem).</li>
+        <li><b>Plano anual com desconto</b>: oferecer 12 meses por R$ 10.000 à vista (2 meses grátis) para até 20 das primeiras empresas. Vinte adesões anuais antecipam R$ 200 mil e eliminam o vale; o custo é ~17% de desconto sobre essas receitas.</li>
+        <li><b>Contratação mais lenta</b>: manter o degrau de R$ 25 mil até 45 empresas. Reduz o vale em ~R$ 20 mil, com risco de degradar a auditoria.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Regras de controle de caixa</h3>
+      <ul>
+        <li>Cobrança via Pix ou cartão recorrente no dia 5; boleto apenas para quem solicitar, com régua de cobrança D+3, D+7, D+15.</li>
+        <li>Fechamento financeiro até o dia 8 de cada mês com MRR, churn, inadimplência e caixa projetado para 90 dias.</li>
+        <li>Nenhuma contratação sem o degrau de empresas ativas atingido por dois meses consecutivos.</li>
+        <li>Se o caixa projetado para 90 dias ficar negativo além do planejado, congelar aquisição paga e acelerar planos anuais.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- P14 ESTRATÉGIA DE CRESCIMENTO -->
+<section class="page">
+  <div class="ph"><span><b>Parte I</b> · Visão executiva</span><span>Estratégia de crescimento</span></div>
+  <p class="eyebrow">Visão executiva · Crescimento</p>
+  <h1>Estratégia de crescimento: de 10 a 100 e além</h1>
+  <p class="lead">O crescimento acontece em quatro estágios com critérios de passagem objetivos. Cada estágio adiciona capacidade antes de adicionar volume, para que a qualidade da entrega não caia justamente quando a base cresce.</p>
+  <div class="flow">
+    <div class="step"><span class="n">1</span><b>Piloto · 10 empresas</b>Mês 1. Processo manual, aprendizado rápido, correções semanais.</div><div class="arr">→</div>
+    <div class="step"><span class="n">2</span><b>Validação · 25–30</b>Mês 2. Primeiros 3 grupos, automação de registro e alertas.</div><div class="arr">→</div>
+    <div class="step"><span class="n">3</span><b>Escala controlada · 40–50</b>Mês 3. Equipe de regime, painéis individuais, relatório automatizado.</div><div class="arr">→</div>
+    <div class="step"><span class="n">4</span><b>Regime · 100</b>Meses 9–13. Dez grupos completos, upsell ativo, segunda cidade ou segmento.</div><div class="arr">→</div>
+    <div class="step"><span class="n">5</span><b>Expansão · 200+</b>Ano 2. Segunda célula operacional, licenciamento regional, produtos premium.</div>
+  </div>
+  <div class="grid2">
+    <div>
+      <h2>Motores de aquisição, em ordem de prioridade</h2>
+      <table class="tbl compact">
+        <tr><th>Motor</th><th>Meta de contribuição</th><th>CAC estimado</th></tr>
+        <tr><td><b>Base atual da Google Primeira Página</b></td><td>30–40 das primeiras 100</td><td>R$ 200–400</td></tr>
+        <tr><td><b>Indicação de membros</b> (1 mês de crédito por indicação convertida)</td><td>25–35</td><td>R$ 1.000 (o crédito)</td></tr>
+        <tr><td><b>Abordagem direta por WhatsApp</b> a empresas qualificadas</td><td>15–25</td><td>R$ 500–900</td></tr>
+        <tr><td><b>Palestras e eventos</b> para associações e cooperativas de saúde</td><td>10–15</td><td>R$ 800–1.500</td></tr>
+        <tr><td><b>Mídia paga</b> (apenas após validar a oferta)</td><td>0–10</td><td>R$ 1.500–2.500</td></tr>
+      </table>
+      <p class="small">Estimativas de CAC são hipóteses de planejamento a confirmar nos primeiros 60 dias.</p>
+    </div>
+    <div>
+      <h2>Alavancas de receita por cliente</h2>
+      <p>Com 100 empresas, o crescimento mais barato vem de dentro. A escada de produtos (pág. 39) prevê que 20% a 30% da base contrate ao menos um serviço adicional, elevando o ticket médio de R$ 1.000 para R$ 1.300 a R$ 1.500 sem novo CAC.</p>
+      <h2>Fatores que limitam a velocidade</h2>
+      <ul>
+        <li><b>Capacidade de onboarding:</b> 1 analista de relacionamento integra com qualidade até 12 empresas por mês.</li>
+        <li><b>Formação de grupos:</b> um grupo só abre com 6 empresas confirmadas, para que a reunião quinzenal tenha dinâmica.</li>
+        <li><b>Caixa:</b> ver pág. 13. Crescer mais rápido do que o caixa permite é o erro mais comum em recorrência.</li>
+      </ul>
+      <div class="callout"><b>Meta de 100 empresas: horizonte honesto.</b> O cenário intermediário atinge 95 empresas no mês 12 e 100 no 13º. Isso exige 10 novas empresas por mês a partir do 5º mês, com churn de 3%. Se a base própria responder como esperado, o otimista (100 no 9º mês) é plausível. Em nenhum cenário o plano prevê 100 empresas em 90 dias.</div>
+    </div>
+  </div>
+  <div class="pf"><span>Google Primeira Página · Clube Google Primeira Página</span><span class="num">Página </span></div>
+</section>
+
+<!-- ABERTURA PARTE II -->
+<section class="page partpage">
+  <div class="pnum">II</div>
+  <p class="eyebrow">Parte II</p>
+  <h1>Engenharia operacional</h1>
+  <p>Como a operação funciona por dentro: a comunidade, a jornada da empresa, a rotina do colaborador, o sistema de auditoria, a tecnologia, a equipe, a estratégia comercial e a retenção. Esta parte foi escrita para o gestor operacional e para a equipe.</p>
+  <ul>
+    <li>Engenharia da comunidade e jornada da empresa</li>
+    <li>Rotina diária, mensagens, scripts e integridade</li>
+    <li>Sistema de auditoria e Índice de Execução</li>
+    <li>Tecnologia, arquitetura e painéis</li>
+    <li>Equipe, funções e indicadores</li>
+    <li>Estratégia comercial e retenção</li>
+  </ul>
+</section>
